@@ -228,20 +228,17 @@ button { font: inherit; }
   font-size: 0.76rem; font-weight: 600; line-height: 1.25;
   border-bottom: 1px solid var(--hair); vertical-align: bottom;
 }
-.tbl thead th.num { max-width: 104px; }
-.tbl th button {
-  all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-}
+.tbl thead th.num { white-space: normal; }
+.tbl th button { all: unset; cursor: pointer; display: inline; } /* inline, so long labels wrap inside the cell */
 .tbl th button:hover { color: var(--ink); }
-.tbl th .arr { font-size: 0.7rem; opacity: 0; }
+.tbl th .arr { font-size: 0.7rem; margin-left: 3px; opacity: 0; }
 .tbl th[aria-sort] .arr { opacity: 1; color: var(--ink); }
 .tbl th.num, .tbl td.num { text-align: right; }
-.tbl th.num button { justify-content: flex-end; }
 .tbl td { border-bottom: 1px solid var(--hair); color: var(--ink); }
 .tbl tbody tr { cursor: pointer; transition: background-color 0.12s; }
 .tbl tbody tr:hover, .tbl tbody tr.is-hot { background: #fbf3f4; }
 .tbl tbody tr:last-child td { border-bottom: 0; }
-.tbl .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tbl td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .tbl .sub { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--muted); font-weight: 400; }
 .tbl .mkt { font-weight: 600; white-space: nowrap; }
 .tbl .prop { min-width: 220px; max-width: 290px; }
