@@ -110,7 +110,7 @@ const Chart = (() => {
         const c = U.svg("circle", {
           class: "rr" + (rm.status === "new" ? " rr--new" : ""), cx, cy: r.y, r: rm.status === "new" ? 5.5 : 6.5,
           tabindex: 0, "data-id": rm.id, role: "button",
-          "aria-label": `${rm.title}: ${U.money(rm.revenue)}, percentile ${U.pct(rm.pctlBr)} among ${rm.bedrooms}BR homes`,
+          "aria-label": `${rm.title}: ${U.money(rm.revenue)}, percentile ${U.pct(rm.pctl12)} among 1–2BR homes`,
         }, s);
         const show = (ev) => {
           const b = ev.type === "focus" ? c.getBoundingClientRect() : null;
@@ -152,7 +152,7 @@ const Chart = (() => {
     return [
       U.el("div", null, U.el("b", null, U.money(rm.revenue)), ` · ${m.name} ${rm.bedrooms}BR`),
       U.el("div", null, rm.title),
-      U.el("div.t-sub", null, `Percentile ${U.pct(rm.pctlBr)} (#${rm.rankBr} of ${rm.nBr}) · ${U.times(rm.vsMedian)} median`),
+      U.el("div.t-sub", null, `Percentile ${U.pct(rm.pctl12)} among 1–2BR (#${rm.rank12} of ${rm.n12}) · ${U.times(rm.vsMedian)} median`),
     ];
   }
 

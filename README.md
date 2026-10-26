@@ -2,9 +2,9 @@
 
 USA dashboard of Airbnb red rooms (BDSM / kink / adult playroom listings), 1BR and 2BR only. It shows where they are and how their revenue compares with the other homes of the same size in their market. It is a static site with no build step, on the same Leaflet and STR Search template as the market sites.
 
-- **Map:** every red room. Markets are filters; selecting one zooms to its region.
+- **Map:** every red room, plus the other 1BR and 2BR homes in each market (the top 10% in blue). Markets are filters; selecting one zooms to its region.
 - **Revenue position:** each market's 1BR and 2BR homes on one revenue axis, with the red rooms highlighted.
-- **Table:** estimated revenue; percentile among same-size homes and among all homes; × the market's median; the gap to the market's top 1BR and top 2BR; ADR; occupancy.
+- **Table:** estimated revenue; percentile among the market's 1BR and 2BR homes; × the market's median; the gap to the market's top 1BR and top 2BR; ADR; occupancy.
 
 ## Data
 
@@ -14,5 +14,5 @@ USA dashboard of Airbnb red rooms (BDSM / kink / adult playroom listings), 1BR a
 
 How the numbers are defined:
 - **Est. revenue:** the workbook's Revenue Potential.
-- **Percentiles:** the share of the market's homes (same bedroom count, or all homes) earning the same or less.
+- **Percentile:** the share of the market's 1BR and 2BR homes (together) earning the same or less; the map colours the top 10% (90th percentile and up) blue.
 - **Median and max:** the market's other homes of that size, with red rooms excluded.

@@ -63,7 +63,7 @@ const App = (() => {
     document.getElementById("kpis").replaceChildren(
       tile("Red rooms", String(rs.length), parts.join(" · ") || "–"),
       tile("Median est. revenue", rs.length ? U.moneyK(med("revenue")) : "–", "1BR & 2BR"),
-      tile("Median percentile", rs.length ? U.pct(med("pctlBr")) : "–", "among same-size homes"),
+      tile("Median percentile", rs.length ? U.pct(med("pctl12")) : "–", "among the market's 1–2BR homes"),
       tile("Median vs typical", rs.length ? U.times(med("vsMedian")) : "–", "the market's median, same size"));
   }
 
@@ -132,7 +132,7 @@ const App = (() => {
     const snaps = data.markets.slice().sort((a, b) => a.order - b.order)
       .map((m) => `${m.name} ${U.monthYear(m.snapshot)}`).join(" · ");
     document.getElementById("foot").replaceChildren(
-      U.el("p", null, "Revenue: Revenue Potential from each market's Market Eval workbook (Cleaned_Data, entire homes). Median and max: the market's other homes of that size, red rooms excluded."),
+      U.el("p", null, "Revenue: Revenue Potential from each market's Market Eval workbook (Cleaned_Data, entire homes). Percentile: share of the market's 1BR and 2BR homes earning the same or less; blue on the map marks the top 10%. Median and max: the market's other homes of that size, red rooms excluded."),
       U.el("p", null, `Data: ${snaps}`));
   }
 

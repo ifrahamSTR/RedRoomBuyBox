@@ -10,10 +10,54 @@ const MapView = (() => {
   const ESRI_ATTR = "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ";
   const OSM_ATTR = "&copy; OpenStreetMap contributors";
 
-  let map, roomLayer, clusterLayer, bases, baseKey = "light";
+  const TOP_COLOR = "#2a78d6"; // top 10% (90th percentile and up) of the market's 1-2BR homes
+  const HOME_COLOR = "#8a9792"; // the other 1-2BR homes
+
+  let map, roomLayer, clusterLayer, homeLayer, homeRenderer, bases, baseKey = "light";
   const markers = {};
   let clusterOf = {};
   let visible = [];
+
+  // ---- every other 1BR / 2BR home in the markets in view (canvas dots) ----
+  const homeRadius = () => { const z = map.getZoom(); return z < 7 ? 2 : z < 10 ? 3 : 4.5; };
+
+  function homeTip(h) {
+    return U.el("div", null, U.el("b", null, U.money(h.rev)), ` · ${h.b}BR`, U.el("br"),
+      U.el("span.t-sub", null, h.title), U.el("br"),
+      U.el("span.t-sub", null, `Percentile ${U.pct(h.pctl)} among 1–2BR` + (h.pctl >= 90 ? " · top 10%" : "")));
+  }
+
+  function homePopup(h) {
+    return U.el("div.pop", null,
+      U.el("div.pop__market", null, U.el("span", null, `${h.m.name}, ${h.m.state} · ${h.b}BR`),
+        h.pctl >= 90 ? U.el("span.pill.pill--top", null, "Top 10%") : null),
+      U.el("a.pop__title", { href: `https://www.airbnb.com/rooms/${h.id}`, target: "_blank", rel: "noopener" }, h.title, U.extIcon()),
+      U.el("div.pop__rev", null, U.money(h.rev), U.el("small", null, "est. annual revenue")),
+      U.el("div.pop__row", null, "Percentile among 1–2BR: ", U.el("b", null, U.pct(h.pctl))));
+  }
+
+  function drawHomes() {
+    homeLayer.clearLayers();
+    const r = homeRadius();
+    const homes = [];
+    App.chartMarkets().forEach((m) => ["1", "2"].forEach((b) => m.sizes[b].homes.forEach(([rev, id, title, lat, lng, pctl]) => {
+      if (lat != null && lng != null) homes.push({ m, b: +b, rev, id, title, lat, lng, pctl });
+    })));
+    homes.sort((a, b) => a.pctl - b.pctl).forEach((h) => { // top 10% drawn last, on top
+      const top = h.pctl >= 90;
+      L.circleMarker([h.lat, h.lng], {
+        renderer: homeRenderer, radius: r, weight: r >= 3 ? 1 : 0, color: "#fff",
+        fillColor: top ? TOP_COLOR : HOME_COLOR, fillOpacity: top ? 0.95 : 0.6,
+      }).bindTooltip(() => homeTip(h), { direction: "top", className: "rr-tip", opacity: 1 })
+        .bindPopup(() => homePopup(h), { maxWidth: 280 })
+        .addTo(homeLayer);
+    });
+  }
+
+  function resizeHomes() {
+    const r = homeRadius();
+    homeLayer.eachLayer((c) => c.setRadius(r).setStyle({ weight: r >= 3 ? 1 : 0 }));
+  }
 
   function pinIcon(r) {
     return L.divIcon({
@@ -37,7 +81,7 @@ const MapView = (() => {
       U.el("div.pop__market", null, U.el("span", null, `${m.name}, ${m.state} · ${r.bedrooms}BR`), pill),
       U.el("a.pop__title", { href: r.url, target: "_blank", rel: "noopener" }, r.title, U.extIcon()),
       U.el("div.pop__rev", null, U.money(r.revenue), U.el("small", null, "est. annual revenue")),
-      U.el("div.pop__row", null, `Percentile in ${r.bedrooms}BR: `, U.el("b", null, U.pct(r.pctlBr)), ` (#${r.rankBr} of ${r.nBr})`),
+      U.el("div.pop__row", null, "Percentile among 1–2BR: ", U.el("b", null, U.pct(r.pctl12)), ` (#${r.rank12} of ${r.n12})`),
       U.el("div.pop__row", null, U.times(r.vsMedian) + ` the market's median ${r.bedrooms}BR`),
       U.el("div.pop__row", null, `ADR ${U.money(r.adr)} · Occupancy ${U.share(r.occupancy)}`),
       U.el("div.pop__ev", null, r.evidence));
@@ -66,6 +110,8 @@ const MapView = (() => {
       streets: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: OSM_ATTR }),
     };
     bases.light.addTo(map);
+    homeRenderer = L.canvas({ padding: 0.5, tolerance: 4 });
+    homeLayer = L.layerGroup().addTo(map); // canvas, so it sits under the red-room pins
     clusterLayer = L.layerGroup().addTo(map);
     roomLayer = L.layerGroup().addTo(map);
 
@@ -85,7 +131,8 @@ const MapView = (() => {
     });
 
     control("bottomleft", () => U.el("div.map-legend", null,
-      U.el("span", null, U.el("i"), "Confirmed"), U.el("span", null, U.el("i.new"), "New find")));
+      U.el("span", null, U.el("i"), "Red room"), U.el("span", null, U.el("i.new"), "New find"),
+      U.el("span", null, U.el("i.top"), "Top 10% 1–2BR"), U.el("span", null, U.el("i.home"), "Other 1–2BR")));
     control("topright", () => U.el("div.map-bases", { role: "group", "aria-label": "Basemap" },
       ["light", "streets"].map((k) => U.el("button", {
         type: "button", "data-base": k, "aria-pressed": String(k === baseKey), on: { click: () => setBase(k) },
@@ -96,7 +143,7 @@ const MapView = (() => {
     // still scrolls past it.
     map.on("click", () => map.scrollWheelZoom.enable());
     map.getContainer().addEventListener("mouseleave", () => map.scrollWheelZoom.disable());
-    map.on("zoomend", regroup);
+    map.on("zoomend", () => { regroup(); resizeHomes(); });
     map.fitBounds(US, { animate: false });
   }
 
@@ -151,6 +198,7 @@ const MapView = (() => {
   function update(fly) {
     visible = App.rooms();
     map.closePopup();
+    drawHomes();
     regroup();
     if (fly) focusMarket();
   }
