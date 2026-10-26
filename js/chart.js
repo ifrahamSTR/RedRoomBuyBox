@@ -100,8 +100,9 @@ const Chart = (() => {
       U.svg("circle", { class: "topc", cx: x(tp.revenue), cy: topDot ? topDot.cy : r.y, r: 4.5 }, g);
       if (topDot) topDot.kind = "top";
 
-      band.addEventListener("pointermove", (e) => hoverRow(e, rowDots, s));
+      band.addEventListener("pointermove", (e) => hoverRow(e, rowDots, s, band));
       band.addEventListener("pointerleave", () => { U.hideTip(); clearRing(); });
+      band.addEventListener("click", (e) => openRow(e, rowDots, s));
 
       // red rooms on top, with values as the only direct labels
       const placed = [];
@@ -156,7 +157,8 @@ const Chart = (() => {
     ];
   }
 
-  function hoverRow(e, rowDots, s) {
+  /** The dot nearest the pointer in a row (within 14px across), or null. */
+  function nearest(e, rowDots, s) {
     const pt = s.createSVGPoint();
     pt.x = e.clientX; pt.y = e.clientY;
     const p = pt.matrixTransform(s.getScreenCTM().inverse());
@@ -167,6 +169,18 @@ const Chart = (() => {
       const dist = d.kind === "median" ? dx * 1.5 : Math.hypot(dx, (d.cy - p.y) * 0.5);
       if (dist < bd) { bd = dist; best = d; }
     }
+    return best;
+  }
+
+  /** A click on a gray dot (or the market-max ring) opens that listing. */
+  function openRow(e, rowDots, s) {
+    const d = nearest(e, rowDots, s);
+    if (d && d.kind !== "median") window.open(`https://www.airbnb.com/rooms/${d.id}`, "_blank", "noopener");
+  }
+
+  function hoverRow(e, rowDots, s, band) {
+    const best = nearest(e, rowDots, s);
+    band.style.cursor = best && best.kind !== "median" ? "pointer" : "default";
     if (!best) { U.hideTip(); clearRing(); return; }
     const r = best.row, b = r.b, m = r.m;
     let lines;
@@ -175,6 +189,7 @@ const Chart = (() => {
       U.el("div", null, U.el("b", null, U.money(best.rev)), ` · ${m.name} ${b}BR`),
       U.el("div", null, best.title),
       best.kind === "top" ? U.el("div.t-sub", null, "Market max (excl. red rooms)") : null,
+      U.el("div.t-sub", null, "Click to open the listing"),
     ].filter(Boolean);
     U.showTip(lines, e.clientX, e.clientY);
     if (best.kind !== "median") {

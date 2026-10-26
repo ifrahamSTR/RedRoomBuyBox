@@ -202,6 +202,7 @@ button { font: inherit; }
 .chart .lbl-s { font-size: 11.5px; fill: var(--muted); }
 .chart .band { fill: var(--surface-2); }
 .chart .ctx { fill: var(--context); fill-opacity: 0.5; }
+.chart .ctx, .chart .med, .chart .topc { pointer-events: none; } /* the row band underneath handles hover and click */
 .chart .med { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
 .chart .topc { fill: #fff; stroke: var(--ink); stroke-width: 1.75; }
 .chart .rr { fill: var(--rr); stroke: #fff; stroke-width: 2; cursor: pointer; }
