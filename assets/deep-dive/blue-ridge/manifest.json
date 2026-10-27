@@ -1,0 +1,454 @@
+{
+ "market": "blue-ridge",
+ "listings": {
+  "1376888340135621101": {
+   "slug": "velvet-chains",
+   "name": "Velvet Chains",
+   "url": "https://www.airbnb.com/rooms/1376888340135621101",
+   "photosViewed": 58
+  },
+  "1452875891719932372": {
+   "slug": "tangled-up-cabin",
+   "name": "Tangled Up Cabin",
+   "url": "https://www.airbnb.com/rooms/1452875891719932372",
+   "photosViewed": 43
+  },
+  "1313102599843276637": {
+   "slug": "adult-theme-bdsm",
+   "name": "Adult Theme | BDSM | Views",
+   "url": "https://www.airbnb.com/rooms/1313102599843276637",
+   "photosViewed": 73
+  },
+  "1531268498318778805": {
+   "slug": "romantic-red-room",
+   "name": "Romantic Red Room",
+   "url": "https://www.airbnb.com/rooms/1531268498318778805",
+   "photosViewed": 51
+  }
+ },
+ "note": "Every listing photo was viewed. Skipped: people (incl. people on the projector screen), figurative or explicit art, explicit book covers and games, review screenshots, logo collages, and rooms outside these categories (kitchens, baths, living rooms).",
+ "images": [
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/02-exterior.jpg",
+   "category": "exterior",
+   "caption": "Modern black A-frame and geodesic igloo in the woods",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/dcd5f868-4d39-410e-b5e1-31b1f069957b.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/06-other.jpg",
+   "category": "other",
+   "caption": "Clear geodesic igloo with seating on a wooded lot",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/db18ea76-c7fd-4025-beb5-1460968f376b.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/22-outdoor-dining.jpg",
+   "category": "outdoor-dining",
+   "caption": "Deck bistro table set with wine and lanterns",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/44744275-9f2b-40b1-8ebe-d1a20ec25d1a.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/23-sauna.jpg",
+   "category": "sauna",
+   "caption": "Outdoor cedar infrared sauna cabin on a gravel pad",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/b58b2434-7999-4b45-882a-d30f58dcba9b.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/34-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "King bedroom with red curtains, red throw, zebra rug",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/229c5728-033b-4404-a3dd-f3e6a60b3b68.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/32-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Bedroom with red accents, black doors, arched mirror",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/06a80b06-f4d2-47d1-82ea-27ef30c79ffb.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/08-playroom.jpg",
+   "category": "playroom",
+   "caption": "St. Andrew's cross, spanking bench, stocks and toy wall",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/1eea8af0-71d4-4d77-b513-b345bb37a1ca.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/04-playroom.jpg",
+   "category": "playroom",
+   "caption": "Red-lit playroom: swing, cross, stocks, neon sign",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/b63654bb-4cb1-4106-8603-468fdb36c184.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/11-playroom.jpg",
+   "category": "playroom",
+   "caption": "Suspended swing alcove beside a red tantra chair",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/c947931c-98cd-46bd-8647-b39e4bd97abc.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/14-playroom.jpg",
+   "category": "playroom",
+   "caption": "Tantra chaise, spanking bench and swing under A-frame",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/a5eacb3c-b6f3-4272-bf11-30930dc6a317.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/44-playroom.jpg",
+   "category": "playroom",
+   "caption": "Curtained sex-swing alcove with red LED lighting",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/42a8ff0e-dd85-481f-9d2b-e4aa718a93b7.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/43-playroom.jpg",
+   "category": "playroom",
+   "caption": "Black vinyl play bed with a rose-petal heart",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/035879a1-19f2-44e6-aeba-94da31f8ad24.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/09-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Wall of floggers, paddles and cuffs",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/c2bf81dd-f03e-4f9e-aeb1-394b1b033a2d.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/58-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Paddles, crops and floggers on a red wall",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/fb9b654d-42d0-43b6-8b56-aaa6fd233839.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/12-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Steel cage with red cushioned floor",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1376888340135621101/original/95d6cc20-4cb0-429c-b2a5-3084ebea8ba2.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/18-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Wall-mounted chain cuff close-up",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/2f1d0955-b2fa-4528-995f-298d0eb901a1.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/41-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Padded spanking horse with leather straps",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/456d0e61-a40d-4d8d-9e84-93bd1cbd492c.jpeg"
+  },
+  {
+   "listingId": "1376888340135621101",
+   "file": "assets/deep-dive/blue-ridge/velvet-chains/28-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "St. Andrew's cross under red light, rose petals",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM3Njg4ODM0MDEzNTYyMTEwMQ==/original/b08ee460-b821-4714-9655-c8040ec3f5c5.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/28-exterior.jpg",
+   "category": "exterior",
+   "caption": "Log cabin with a long deck in the woods",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/17899cdc-840a-45d9-af44-41ab83cd781f.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/26-hot-tub.jpg",
+   "category": "hot-tub",
+   "caption": "Hot tub on a private deck",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/ad4dcfcc-f4c4-46d5-9e37-6f6653d4b6b6.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/23-sauna.jpg",
+   "category": "sauna",
+   "caption": "Barrel sauna with robes on the deck",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/4d05c316-be6b-4b5f-b805-6a25dd05cfb2.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/27-fire-pit.jpg",
+   "category": "fire-pit",
+   "caption": "Gravel fire pit with two Adirondack chairs",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/75e3c989-8c5a-4f75-8dc5-57ade61fee4f.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/11-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "King bed with restraint cuffs and rose-petal heart",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1452875891719932372/original/921dcda3-6ced-451b-a50d-cf197114c38b.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/10-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Platform bed with under-mattress restraint straps",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1452875891719932372/original/68c0f56c-6dcf-4031-b0b6-74fcfe293658.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/18-playroom.jpg",
+   "category": "playroom",
+   "caption": "Green-lit playroom: cross, swing, bench, tantra chair",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1452875891719932372/original/2d6f45d7-a8ba-4734-86a7-302f96491622.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/15-playroom.jpg",
+   "category": "playroom",
+   "caption": "Restraint wall under neon, cross and swing beyond",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/0c64d7f9-d176-4584-a187-92b5016b32c2.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/14-playroom.jpg",
+   "category": "playroom",
+   "caption": "Tantra chaise lounge in the loft playroom",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/b572abe4-ce43-4e25-8724-dafbbd0cf69c.jpeg"
+  },
+  {
+   "listingId": "1452875891719932372",
+   "file": "assets/deep-dive/blue-ridge/tangled-up-cabin/16-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Leather restraints and cuffs under a neon sign",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTQ1Mjg3NTg5MTcxOTkzMjM3Mg==/original/c832b003-0e0e-4f3a-8648-af59d17f3cb0.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/53-exterior.jpg",
+   "category": "exterior",
+   "caption": "Cabin on a wooded hillside in autumn",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1313102599843276637/original/a7bd0f21-cb94-4a66-9be6-52ce964fc4a2.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/02-hot-tub.jpg",
+   "category": "hot-tub",
+   "caption": "Indoor jacuzzi with a mountain-view window",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/9751b7bd-7b8b-4a8a-85d5-5b4a4129cd27.png"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/56-outdoor-dining.jpg",
+   "category": "outdoor-dining",
+   "caption": "Deck bistro set facing the Blue Ridge mountains",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1313102599843276637/original/8777baf9-76cd-4263-9fae-8d289ef0a7ac.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/62-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Bedroom with sex-swing frame and tantra chaise",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/31b8743a-f905-4ef5-89ab-83eb233a1702.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/11-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Vaulted bedroom with swing stand beside the bed",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/d01e14f2-1767-4ca4-89a7-1c1cf183c218.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/08-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Bedroom with tantra chaise and balcony doors",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/68f6b0c7-0f5b-43a1-a551-ddcc481e9ec7.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/43-playroom.jpg",
+   "category": "playroom",
+   "caption": "St. Andrew's cross by the deck door, wall hooks",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/dc1eda77-d191-480d-ba4c-0731a897a456.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/42-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Freestanding St. Andrew's cross",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/e3c4846f-56c7-4a46-90ce-1ce640a71d85.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/44-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Wall hooks with flogger, paddle and mask",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/29a3838b-1b49-43e2-8c5f-f960ebbbabdd.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/12-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Sex-swing stand with leather sling",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/1dae07ee-7caf-42f6-b8dc-ca0800c38c94.jpeg"
+  },
+  {
+   "listingId": "1313102599843276637",
+   "file": "assets/deep-dive/blue-ridge/adult-theme-bdsm/04-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Tray with flogger, cuffs and restraints",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1313102599843276637/original/52800fe1-09c0-4760-ae66-f0a422581a35.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/03-exterior.jpg",
+   "category": "exterior",
+   "caption": "Modern two-story home and geodesic dome at sunset",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/9c85b4b6-e26c-4552-86bb-abfdf936bf5d.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/04-hot-tub.jpg",
+   "category": "hot-tub",
+   "caption": "Covered-patio hot tub beside the dome",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/fd3d0849-2086-4977-a906-8a56aa2048ce.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/06-sauna.jpg",
+   "category": "sauna",
+   "caption": "Cedar barrel sauna on the deck",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/51ea7dc2-a95b-4b04-a9e2-c5ae7bb3e1b1.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/24-fire-pit.jpg",
+   "category": "fire-pit",
+   "caption": "Stone fire-pit ring with wooden chairs",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/71a8bcb2-188a-46e4-be4d-355f513617d6.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/11-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "King bed, red blackout curtains, black velvet bedding",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/c49fb7f0-fef6-43a8-ab0e-62cf11161d7f.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/15-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Red curtain wall, black bedding, champagne tray",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/98a0f128-5314-4073-bdaa-7228f42ec3f8.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/14-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Black-and-red bedroom with slider to the deck",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/6f7ad7d8-4c57-4a53-a3b5-addd690ce651.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/02-playroom.jpg",
+   "category": "playroom",
+   "caption": "Red-lit playroom: swing, bench, 'Don't Stop' neon",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/49a7977f-de33-442e-a548-8ed392892cc7.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/47-playroom.jpg",
+   "category": "playroom",
+   "caption": "Cross, swing chains and padded bench under neon",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/14487b99-5317-465e-b2cb-f2a6504af835.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/46-playroom.jpg",
+   "category": "playroom",
+   "caption": "St. Andrew's cross and toy wall in red light",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/77796596-254a-4c40-98ab-1745d59735c3.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/09-playroom.jpg",
+   "category": "playroom",
+   "caption": "Sex swing, padded bench and mirror, red LEDs",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/5686b8c1-489d-4e85-8fec-84a1fab92b60.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/48-playroom.jpg",
+   "category": "playroom",
+   "caption": "Curtained bed nook inside the red room",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/87b27d70-bcc4-413a-a394-be2ecb6876f4.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/44-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Cuffs, paddles and crops on a red wall",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/4b1d9754-49b4-4986-aa92-fe15b293dc7d.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/43-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Leather paddle and cuffs close-up",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/218ace80-74e5-40a0-964d-6dcf6001c445.jpeg"
+  },
+  {
+   "listingId": "1531268498318778805",
+   "file": "assets/deep-dive/blue-ridge/romantic-red-room/45-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Chains, padded cuffs and a studded paddle",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/2148c22f-416a-450e-a9e6-f8940c6f17d3.jpeg"
+  }
+ ],
+ "gaps": [
+  {
+   "listingId": "1376888340135621101",
+   "category": "hot-tub",
+   "file": null,
+   "note": "Only hot-tub photos show the projector screen with people; none used."
+  },
+  {
+   "listingId": "1376888340135621101",
+   "category": "fire-pit",
+   "file": null,
+   "note": "Fire-table photos show the projector screen with people; none used."
+  },
+  {
+   "listingId": "1376888340135621101",
+   "category": "other",
+   "file": null,
+   "note": "Outdoor projector screen: every photo shows people on screen; none used."
+  },
+  {
+   "listingId": "1452875891719932372",
+   "category": "outdoor-dining",
+   "file": null,
+   "note": "No outdoor dining-table photo in the listing."
+  },
+  {
+   "listingId": "1313102599843276637",
+   "category": "sauna",
+   "file": null,
+   "note": "Listing has no sauna."
+  },
+  {
+   "listingId": "1313102599843276637",
+   "category": "fire-pit",
+   "file": null,
+   "note": "No fire-pit photo in the listing."
+  },
+  {
+   "listingId": "1531268498318778805",
+   "category": "outdoor-dining",
+   "file": null,
+   "note": "No outdoor dining-table photo in the listing."
+  }
+ ]
+}

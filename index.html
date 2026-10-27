@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="css/styles.css?v=20261026b" />
+<link rel="stylesheet" href="css/styles.css?v=20261027b" />
 </head>
 <body>
 
@@ -55,6 +55,18 @@
       <table class="tbl" id="tbl"></table>
     </div>
   </section>
+  <section class="card dd" id="deep-dive" aria-labelledby="dd-h">
+    <div class="card__head">
+      <h2 id="dd-h">Market Deep Dive</h2>
+      <div class="dd-tabs" id="dd-tabs" role="tablist" aria-label="Markets"></div>
+    </div>
+    <div class="dd-body" id="dd-body"></div>
+  </section>
+
+  <section class="card dd" id="inside-red-rooms" aria-labelledby="inside-h">
+    <div class="card__head"><h2 id="inside-h">Inside the red rooms</h2></div>
+    <div class="dd-body" id="dd-galleries"></div>
+  </section>
 </main>
 
 <footer class="foot">
@@ -63,12 +75,21 @@
 
 <div class="tip" id="tip" role="tooltip" hidden></div>
 
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Close">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+  <figure class="lightbox__figure"><img id="lightbox-image" alt="" /><figcaption id="lightbox-caption"></figcaption></figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" type="button" aria-label="Next photo">›</button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/data.js?v=20261027b"></script>
 <script src="js/util.js?v=20261026a"></script>
 <script src="js/map.js?v=20261026a"></script>
 <script src="js/chart.js?v=20261026b"></script>
 <script src="js/table.js?v=20261026a"></script>
-<script src="js/main.js?v=20261026a"></script>
+<script src="js/main.js?v=20261027a"></script>
+<script src="js/deepdive.js?v=20261027a"></script>
+<script src="js/deepdive-render.js?v=20261027b"></script>
 </body>
 </html>

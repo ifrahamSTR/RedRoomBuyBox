@@ -5,7 +5,8 @@ const App = (() => {
   const data = window.RR_DATA;
   const marketById = Object.fromEntries(data.markets.map((m) => [m.id, m]));
   const roomById = Object.fromEntries(data.redrooms.map((r) => [r.id, r]));
-  const state = { market: "all", status: "all", hot: null };
+  const state = { market: "all", status: "all", hot: null, deepDive: null };
+  const hasDeepDive = () => typeof DeepDive !== "undefined" && window.DEEPDIVE;
   const STATUSES = [["all", "All"], ["confirmed", "Confirmed"], ["new", "New finds"]];
 
   const statusOk = (r) => state.status === "all" || r.status === state.status;
@@ -117,11 +118,14 @@ const App = (() => {
     state.status = STATUSES.some(([k]) => k === s) ? s : "all";
     const m = p.get("market");
     state.market = m && chipMarkets().some((x) => x.m.id === m) ? m : "all";
+    const dd = p.get("deep-dive");
+    state.deepDive = dd && window.DEEPDIVE && DEEPDIVE.tabs.some((t) => t.id === dd) ? dd : null;
   }
   function writeHash() {
     const p = new URLSearchParams();
     if (state.market !== "all") p.set("market", state.market);
     if (state.status !== "all") p.set("status", state.status);
+    if (state.deepDive) p.set("deep-dive", state.deepDive);
     const h = p.toString();
     history.replaceState(null, "", h ? "#" + h : location.pathname + location.search);
   }
@@ -142,6 +146,7 @@ const App = (() => {
     Chart.legend();
     MapView.init();
     renderAll(state.market !== "all");
+    if (hasDeepDive()) DeepDive.init(state.deepDive); // #deep-dive=blue-ridge opens that tab
     if (document.fonts) document.fonts.ready.then(() => Chart.render()); // labels are measured
     let t;
     window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(Chart.render, 150); });
@@ -149,10 +154,14 @@ const App = (() => {
       const before = state.market;
       readHash();
       renderAll(before !== state.market);
+      if (hasDeepDive() && state.deepDive) DeepDive.open(state.deepDive, true);
     });
   }
 
-  return { data, state, marketById, roomById, rooms, chartMarkets, marketRank, setHot, select, init };
+  /** A deep-dive tab was chosen: keep it in the URL. */
+  function setDeepDive(id) { state.deepDive = id; writeHash(); }
+
+  return { data, state, marketById, roomById, rooms, chartMarkets, marketRank, setHot, select, setDeepDive, init };
 })();
 
 document.addEventListener("DOMContentLoaded", App.init);
