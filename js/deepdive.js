@@ -18,6 +18,7 @@ window.DEEPDIVE = {
      "adr": 562,
      "occupancy": 0.7415,
      "url": "https://www.airbnb.com/rooms/1376888340135621101",
+     "baths": 2.0,
      "amenities": {
       "HAS_hot_tub": 1,
       "HAS_sauna": 1,
@@ -35,6 +36,7 @@ window.DEEPDIVE = {
      "adr": 373,
      "occupancy": 0.8658,
      "url": "https://www.airbnb.com/rooms/1452875891719932372",
+     "baths": 2.0,
      "amenities": {
       "HAS_hot_tub": 1,
       "HAS_sauna": 1,
@@ -52,6 +54,7 @@ window.DEEPDIVE = {
      "adr": 355,
      "occupancy": 0.7816,
      "url": "https://www.airbnb.com/rooms/1313102599843276637",
+     "baths": 1.0,
      "amenities": {
       "HAS_hot_tub": 1,
       "HAS_sauna": 0,
@@ -63,12 +66,13 @@ window.DEEPDIVE = {
     {
      "id": "1531268498318778805",
      "name": "Romantic Red Room",
-     "note": "",
+     "note": "modern two-story house",
      "br": 2,
      "revenue": 99886,
      "adr": 423,
      "occupancy": 0.6775,
      "url": "https://www.airbnb.com/rooms/1531268498318778805",
+     "baths": 2.0,
      "amenities": {
       "HAS_hot_tub": 1,
       "HAS_sauna": 1,
@@ -126,24 +130,205 @@ window.DEEPDIVE = {
     "a": "1376888340135621101",
     "b": "1531268498318778805",
     "delta": 51971,
-    "takeaway": "Same amenities, +$52K – kink sets the floor, design sets the ceiling."
+    "shared": [
+     "Same 4 amenities",
+     "Geodesic igloo"
+    ],
+    "takeaway": "A-frame vs modern build: same amenities, same igloo, +$52K — mostly nightly rate ($562 vs $423)."
    },
-   "extras": [
-    {
-     "label": "Igloo",
-     "file": "assets/deep-dive/blue-ridge/velvet-chains/06-other.jpg"
+   "target": {
+    "id": "636-bear-paw",
+    "name": "636 Bear Paw Trl",
+    "address": "636 Bear Paw Trl, Blue Ridge, GA 30513",
+    "url": "https://www.zillow.com/homedetails/636-Bear-Paw-Trl-Blue-Ridge-GA-30513/306190976_zpid/",
+    "checked": "2026-10-27",
+    "sources": [
+     {
+      "label": "Metro Brokers (listing office)",
+      "url": "https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174"
+     },
+     {
+      "label": "Ansley Real Estate",
+      "url": "https://www.ansleyre.com/422507/636-bear-paw-trail-blue-ridge-georgia-30513-nega"
+     },
+     {
+      "label": "Gilmer County STR FAQ",
+      "url": "https://gilmercountyga.munirevs.com/faq/"
+     }
+    ],
+    "price": {
+     "value": 299900,
+     "status": "Active",
+     "src": "listing",
+     "earlier": 339900,
+     "earlierNote": "last seen on Zillow, after a $10K cut",
+     "earlierSrc": "notes"
     },
-    {
-     "label": "Outdoor projector screen",
-     "file": null,
-     "note": "No usable photo: every shot shows people on screen"
-    },
-    {
-     "label": "Secluded setting",
-     "file": "assets/deep-dive/blue-ridge/velvet-chains/02-exterior.jpg",
-     "focus": "15% 70%"
+    "facts": [
+     {
+      "label": "Beds / baths",
+      "value": "2 / 1",
+      "src": "listing"
+     },
+     {
+      "label": "Size",
+      "value": "1,536 sq ft",
+      "src": "notes"
+     },
+     {
+      "label": "Built",
+      "value": "1981",
+      "src": "listing"
+     },
+     {
+      "label": "Lot",
+      "value": "5.02 acres, gentle terrain",
+      "src": "listing"
+     },
+     {
+      "label": "Stream",
+      "value": "334 ft + small ponds",
+      "src": "listing"
+     },
+     {
+      "label": "Roof",
+      "value": "Metal, 2023",
+      "src": "listing"
+     },
+     {
+      "label": "Internet",
+      "value": "Fiber",
+      "src": "listing"
+     },
+     {
+      "label": "Garage",
+      "value": "Detached, 18 x 20 ft",
+      "src": "listing"
+     },
+     {
+      "label": "Downtown",
+      "value": "Under 5 mi",
+      "src": "listing"
+     },
+     {
+      "label": "County",
+      "value": "Gilmer",
+      "src": "listing"
+     },
+     {
+      "label": "Closing costs",
+      "value": "Seller pays $6K",
+      "src": "notes"
+     }
+    ],
+    "fit": [
+     {
+      "item": "Hot tub",
+      "verdict": "likely",
+      "where": "On the wraparound deck, or a pad beside it",
+      "evidence": "4-sided wraparound deck (listing); deck load rating not listed",
+      "photo": "34-deck.jpg",
+      "comps": "Comps: on a deck (2), covered patio (1), indoor room (1)"
+     },
+     {
+      "item": "Sauna",
+      "verdict": "fits",
+      "where": "Gravel pad by the garage, or on the deck",
+      "evidence": "5.02 gentle acres (listing); gravel parking area (photo)",
+      "photo": "53-exterior.jpg",
+      "comps": "Comps: barrel sauna on a deck (2), small cabin on gravel (1)"
+     },
+     {
+      "item": "Fire pit",
+      "verdict": "fits",
+      "where": "Already there",
+      "evidence": "Existing fire-pit ring (photo)",
+      "photo": "30-fire-pit.jpg",
+      "comps": "Comps: a ring with chairs (3 of 4)"
+     },
+     {
+      "item": "Outdoor dining",
+      "verdict": "fits",
+      "where": "Covered wraparound porch",
+      "evidence": "4-sided wraparound porch (listing); covered porch (photo)",
+      "photo": "25-porch.jpg",
+      "comps": "Comps: a small table on a deck"
+     },
+     {
+      "item": "Themed bedroom",
+      "verdict": "fits",
+      "where": "Main-floor bedroom, 11 x 12 ft",
+      "evidence": "Room size (listing); bedroom (photo)",
+      "photo": "13-bedroom.jpg",
+      "comps": "Comps: a regular bedroom, themed with decor and gear"
+     },
+     {
+      "item": "Kink room",
+      "verdict": "likely",
+      "where": "Unfinished terrace level, 668 sq ft",
+      "evidence": "668 sq ft unfinished (listing): about 5x the main bedroom. Needs finishing; water heater, HVAC and wood stove share the space (photos)",
+      "photo": "46-basement.jpg",
+      "comps": "Comps: a dedicated room (3 of 4)"
+     }
+    ],
+    "seclusion": [
+     {
+      "text": "No neighbors in sight",
+      "src": "listing"
+     },
+     {
+      "text": "House not visible from the road",
+      "src": "notes"
+     },
+     {
+      "text": "Gated shared driveway",
+      "src": "notes"
+     }
+    ],
+    "view": [
+     {
+      "text": "Seasonal mountain view",
+      "src": "listing"
+     },
+     {
+      "text": "Not shown in any listing photo",
+      "src": "photo"
+     }
+    ],
+    "risks": [
+     {
+      "flag": "One bathroom",
+      "detail": "3 of 4 comps have two"
+     },
+     {
+      "flag": "Shared driveway",
+      "detail": "Maintenance shared with a neighbor"
+     },
+     {
+      "flag": "Built 1981",
+      "detail": "Roof and water heater 2023, generator 2020"
+     },
+     {
+      "flag": "Gilmer County STR license",
+      "detail": "Required before listing: $225 new, $300/yr, monthly lodging-tax filing. Guest and septic limits: unknown"
+     },
+     {
+      "flag": "Slope behind the house",
+      "detail": "Rear deck sits on tall posts (photo)"
+     },
+     {
+      "flag": "HOA",
+      "detail": "Listing says none; one listing field shows an annual fee. Confirm"
+     }
+    ],
+    "lines": {
+     "compAvg": 117683,
+     "p30": 392278,
+     "p25": 470733,
+     "yieldNow": 0.392,
+     "yieldEarlier": 0.346
     }
-   ]
+   }
   },
   {
    "id": "urban",

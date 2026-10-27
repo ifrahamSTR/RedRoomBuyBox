@@ -58,3 +58,25 @@ Downloaded 2026-10-27 from each listing's public Airbnb page (no hotlinking). Ev
 | romantic-red-room/44-kink-equipment.jpg | Romantic Red Room | https://www.airbnb.com/rooms/1531268498318778805 | https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/4b1d9754-49b4-4986-aa92-fe15b293dc7d.jpeg |
 | romantic-red-room/43-kink-equipment.jpg | Romantic Red Room | https://www.airbnb.com/rooms/1531268498318778805 | https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/218ace80-74e5-40a0-964d-6dcf6001c445.jpeg |
 | romantic-red-room/45-kink-equipment.jpg | Romantic Red Room | https://www.airbnb.com/rooms/1531268498318778805 | https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/2148c22f-416a-450e-a9e6-f8940c6f17d3.jpeg |
+
+## Acquisition target: 636 Bear Paw Trl
+
+Downloaded 2026-10-27 from the listing's photos (Northeast Georgia MLS #436174, listed by BHGRE Metro Brokers - Blue Ridge). All 73 photos were viewed; none shows people.
+
+| File | Listing page | Image source |
+|---|---|---|
+| target-636-bear-paw/11-exterior.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/11.jpg |
+| target-636-bear-paw/19-exterior.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/19.jpg |
+| target-636-bear-paw/72-aerial.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/72.jpg |
+| target-636-bear-paw/35-aerial.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/35.jpg |
+| target-636-bear-paw/34-deck.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/34.jpg |
+| target-636-bear-paw/12-porch.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/12.jpg |
+| target-636-bear-paw/25-porch.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/25.jpg |
+| target-636-bear-paw/13-bedroom.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/13.jpg |
+| target-636-bear-paw/44-bedroom.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/44.jpg |
+| target-636-bear-paw/46-basement.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/46.jpg |
+| target-636-bear-paw/48-basement.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/48.jpg |
+| target-636-bear-paw/50-bath.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/50.jpg |
+| target-636-bear-paw/30-fire-pit.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/30.jpg |
+| target-636-bear-paw/53-exterior.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/53.jpg |
+| target-636-bear-paw/41-lot.jpg | https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174 | https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/41.jpg |

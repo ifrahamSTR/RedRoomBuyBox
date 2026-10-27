@@ -65,6 +65,8 @@ const DeepDive = (() => {
   const pct0 = (v) => Math.round(v * 100) + "%";
   const k1 = (v) => "$" + (v / 1000).toFixed(1) + "K"; // $117.7K, as specified
   const imgsOf = (man, id, cat) => man.images.filter((m) => m.listingId === id && (!cat || m.category === cat));
+  const compLink = (c) => U.el("a.dd-link", { href: c.url, target: "_blank", rel: "noopener" }, c.name, U.extIcon());
+  const cap1 = (x) => x ? x[0].toUpperCase() + x.slice(1) : "";
   const head = (title, note) => U.el("div.dd-head", null, U.el("h3", null, title), note ? U.el("p.dd-note", null, note) : null);
 
   /** First photo of a category: the top comp's if it has one, else the next comp by revenue. */
@@ -110,7 +112,7 @@ const DeepDive = (() => {
       U.el("thead", null, U.el("tr", null, U.el("th", { scope: "col" }, "Listing"), U.el("th", { scope: "col" }, "Revenue"),
         t.amenities.map((a) => U.el("th", { scope: "col", class: "dd-m-h" }, a.label)), U.el("th", { scope: "col", class: "dd-m-h" }, "Score"))),
       U.el("tbody", null, t.comps.map((c, i) => U.el("tr", { class: i === 0 ? "dd-top" : null },
-        U.el("th", { scope: "row" }, c.name, U.el("span.dd-sub", null, `${c.br}BR`)),
+        U.el("th", { scope: "row" }, compLink(c), U.el("span.dd-sub", null, `${c.br}BR`)),
         U.el("td.dd-rev", null, U.el("span.dd-bar", null, U.el("i", { style: `width:${(c.revenue / max) * 100}%` })), U.el("span", null, k1(c.revenue))),
         t.amenities.map((a) => cell(c.amenities[a.key])),
         U.el("td.dd-score", null, `${c.score}/${k}`)))),
@@ -131,23 +133,78 @@ const DeepDive = (() => {
       return U.el("div.dd-card" + (id === t.comps[0].id ? ".dd-top" : ""), null,
         ext ? photoFigure(fromManifest(ext), { caption: false }) : U.el("figure.dd-photo.dd-photo--empty", null, U.el("span", null, "No exterior photo")),
         U.el("div.dd-card__body", null,
-          U.el("div.dd-card__name", null, c.name, U.el("span.dd-sub", null, `${c.score}/${t.amenities.length}`)),
+          U.el("div.dd-card__name", null, compLink(c), U.el("span.dd-sub", null, `${c.score}/${t.amenities.length}`)),
+          U.el("div.dd-card__build", null, cap1(c.note)),
+          U.el("div.dd-chips", null, (t.designPremium.shared || []).map((x) => U.el("span.dd-chip", null, x))),
           U.el("div.dd-card__stats", null, U.el("b", null, U.money(c.revenue)), ` · ADR ${U.money(c.adr)} · ${pct0(c.occupancy)} occ.`)));
     };
     return U.el("div.dd-block", null, head("Design premium", t.designPremium.takeaway),
       U.el("div.dd-pair", null, card(t.designPremium.a), card(t.designPremium.b)));
   }
 
-  function extras(t) {
-    if (!t.extras.length) return null;
-    const row = U.el("div.dd-strip.dd-strip--3");
-    t.extras.forEach((x) => {
-      const fig = x.file ? photoFigure(photo(x.file, x.label, x.label, x.focus), { caption: false })
-        : U.el("figure.dd-photo.dd-photo--empty", null, U.el("span", null, x.note));
-      fig.append(U.el("figcaption", null, U.el("b", null, x.label)));
-      row.append(fig);
-    });
-    return U.el("div.dd-block", null, head(`${t.comps[0].name} extras`, "Upside, not must-have."), row);
+  // ---- acquisition target: does the house and lot have room for the must-haves? ----
+  const SRC = { listing: "listing", notes: "your notes", photo: "photo" };
+  const VERDICT = { fits: "Fits", likely: "Likely", unknown: "Unknown" };
+  const srcTag = (s) => U.el("span.dd-tag", null, SRC[s] || s);
+
+  function target(t, man) {
+    const T = t.target, L = T.lines, pr = T.price;
+    const list = imgsOf(man, T.id).map(fromManifest);
+    const pic = (file, opts = {}) => {
+      const k = list.findIndex((p) => p.file.endsWith("/" + file));
+      return k < 0 ? U.el("figure.dd-photo.dd-photo--empty", null, U.el("span", null, "No photo")) : photoFigure(list[k], { list, index: k, ...opts });
+    };
+    const fmtDate = new Date(T.checked + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+    // price vs the comp file's price-to-rent lines
+    const top = Math.ceil((L.p25 * 1.1) / 50000) * 50000;
+    const at = (v) => `${(v / top) * 100}%`;
+    const mark = (v, cls, label) => U.el("span", { class: "dd-scale__mark " + cls, style: `left:${at(v)}` }, U.el("span.dd-scale__label", null, label));
+    const scale = U.el("div.dd-scale", { role: "img", "aria-label": `Price ${U.money(pr.value)} against the 30% line ${U.money(L.p30)} and the 25% line ${U.money(L.p25)}` },
+      U.el("div.dd-scale__track", null, U.el("i", { style: `width:${at(pr.value)}` })),
+      mark(L.p30, "dd-scale__line", `30% line ${k1(L.p30)}`),
+      mark(L.p25, "dd-scale__line dd-scale__line--25", `25% line ${k1(L.p25)}`),
+      pr.earlier ? mark(pr.earlier, "dd-scale__was", `was ${k1(pr.earlier)}`) : null,
+      mark(pr.value, "dd-scale__now", `${k1(pr.value)} now`));
+    const under = pr.value < L.p30;
+    const key = (cls, text) => U.el("span", null, U.el("i", { class: cls }), text);
+    const legend = U.el("div.dd-scale-legend", null,  // shown instead of the in-bar labels on phones
+      key("dd-k dd-k--now", `${k1(pr.value)} now`), pr.earlier ? key("dd-k dd-k--was", `was ${k1(pr.earlier)}`) : null,
+      key("dd-k dd-k--line", `30% line ${k1(L.p30)}`), key("dd-k dd-k--line", `25% line ${k1(L.p25)}`));
+
+    const fit = U.el("div.dd-fit", null, T.fit.map((f) => U.el("div.dd-fit__card", null,
+      pic(f.photo, { caption: false }),
+      U.el("div.dd-fit__body", null,
+        U.el("div.dd-fit__top", null, U.el("b", null, f.item), U.el("span", { class: "dd-pill dd-pill--" + f.verdict }, VERDICT[f.verdict])),
+        U.el("div.dd-fit__where", null, f.where),
+        U.el("div.dd-fit__ev", null, f.evidence),
+        U.el("div.dd-fit__comps", null, f.comps)))));
+
+    const lines = (arr) => U.el("ul.dd-list", null, arr.map((x) => U.el("li", null, x.text, " ", srcTag(x.src))));
+    return U.el("div.dd-block.dd-target", null,
+      U.el("div.dd-head", null, U.el("h3", null, "Acquisition target"),
+        U.el("a.dd-link", { href: T.url, target: "_blank", rel: "noopener" }, T.address, U.extIcon())),
+      U.el("div.dd-target__top", null,
+        pic("11-exterior.jpg", { caption: false }),
+        U.el("div.dd-target__facts", null,
+          U.el("div.dd-price", null, U.el("b", null, U.money(pr.value)), U.el("span", null, `${pr.status} · checked ${fmtDate}`), srcTag(pr.src)),
+          pr.earlier ? U.el("div.dd-price__was", null, `Was ${U.money(pr.earlier)}, ${pr.earlierNote} `, srcTag(pr.earlierSrc)) : null,
+          U.el("dl.dd-facts", null, T.facts.map((f) => U.el("div", null, U.el("dt", null, f.label), U.el("dd", null, f.value, " ", srcTag(f.src))))))),
+      U.el("div.dd-sub-block", null,
+        U.el("h4", null, "Price vs the comp file's lines"),
+        scale, legend,
+        U.el("p.dd-note", null, (under ? "Below the 30% line" : "Above the 30% line") +
+          `: a year at the comp average (${k1(L.compAvg)}) = ${pct0(L.yieldNow)} of the price` +
+          (L.yieldEarlier ? ` (${pct0(L.yieldEarlier)} at ${k1(pr.earlier)}).` : "."))),
+      U.el("div.dd-sub-block", null, U.el("h4", null, "Room for the must-haves"), fit),
+      U.el("div.dd-sub-block", null,
+        U.el("div.dd-pair", null,
+          U.el("div.dd-card", null, pic("72-aerial.jpg", { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "Seclusion"), lines(T.seclusion))),
+          U.el("div.dd-card", null, pic("35-aerial.jpg", { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "View"), lines(T.view))))),
+      U.el("div.dd-sub-block", null, U.el("h4", null, "Risks"),
+        U.el("ul.dd-risks", null, T.risks.map((r) => U.el("li", null, U.el("span.dd-risks__icon", { "aria-hidden": "true" }, "!"), U.el("b", null, r.flag), U.el("span", null, r.detail))))),
+      U.el("p.dd-sources", null, "Sources: ", T.sources.flatMap((x, k) => [k ? " · " : "", U.el("a", { href: x.url, target: "_blank", rel: "noopener" }, x.label)]),
+        ` · checked ${fmtDate}. Zillow blocked automated access.`));
   }
 
   // ---- "Inside the red rooms": one scrolling gallery per comp ----
@@ -179,7 +236,7 @@ const DeepDive = (() => {
     track.querySelectorAll("img").forEach((im) => im.addEventListener("load", sync, { once: true }));
     return U.el("div.dd-gallery" + (i === 0 ? ".dd-top" : ""), null,
       U.el("div.dd-gallery__head", null,
-        U.el("h3", null, c.name), U.el("span.dd-sub", null, `${c.br}BR · ${U.money(c.revenue)}`),
+        U.el("h3", null, compLink(c)), U.el("span.dd-sub", null, `${c.br}BR · ${U.money(c.revenue)}`),
         U.el("a", { href: c.url, target: "_blank", rel: "noopener" }, "Airbnb listing", U.extIcon())),
       U.el("div.dd-gallery__frame", null, prev, track, next));
   }
@@ -207,7 +264,7 @@ const DeepDive = (() => {
         catch (e) { man = { images: [], gaps: [] }; console.warn("Deep dive photos need the site served over http(s):", e.message); }
       }
       if (active !== t.id) return;
-      body.replaceChildren(hero(t, man), mustHaves(t, man), matrix(t), designPremium(t, man), extras(t) || "");
+      body.replaceChildren(hero(t, man), mustHaves(t, man), matrix(t), designPremium(t, man), t.target ? target(t, man) : "");
       gal.replaceChildren(...t.comps.map((c, i) => gallery(t, man, c, i)));
     }
     if (scroll) document.getElementById("deep-dive").scrollIntoView({ behavior: "smooth", block: "start" });

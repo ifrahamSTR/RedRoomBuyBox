@@ -434,3 +434,88 @@ button { font: inherit; }
   .lightbox { padding: 3.5rem 0.5rem 4.5rem; }
   .lightbox__nav { top: auto; bottom: 1rem; }
 }
+
+/* deep dive: comp links, design-premium chips, acquisition target */
+.dd-link { color: inherit; text-decoration: none; }
+.dd-link:hover { text-decoration: underline; }
+.dd-link svg { vertical-align: -1px; margin-left: 3px; opacity: 0.55; }
+.dd-head .dd-link { font-size: 0.86rem; color: var(--brand-green); }
+.dd-card__build { margin-top: 2px; font-size: 0.82rem; color: var(--ink-2); }
+.dd-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.dd-chip { padding: 2px 9px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--hair); font-size: 0.74rem; font-weight: 600; color: var(--ink-2); }
+.dd-card__stats { margin-top: 8px; }
+
+.dd-target { padding-top: 18px; border-top: 1px solid var(--hair); }
+.dd-target__top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.dd-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.dd-price b { font-size: 1.7rem; color: var(--ink); letter-spacing: -0.02em; }
+.dd-price span:not(.dd-tag) { font-size: 0.84rem; color: var(--ink-2); }
+.dd-price__was { margin-top: 2px; font-size: 0.8rem; color: var(--muted); }
+.dd-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin: 12px 0 0; }
+.dd-facts div { min-width: 0; }
+.dd-facts dt { font-size: 0.72rem; color: var(--muted); }
+.dd-facts dd { margin: 0; font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+.dd-tag { display: inline-block; padding: 0 6px; border-radius: 4px; background: var(--surface-2); color: var(--muted); font-size: 0.66rem; font-weight: 500; vertical-align: 1px; white-space: nowrap; }
+.dd-sub-block { margin-top: 18px; }
+.dd-sub-block h4 { margin: 0 0 10px; font-size: 0.86rem; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.dd-sub-block .dd-note { margin-top: 8px; }
+
+.dd-scale { position: relative; height: 64px; margin: 0 4px; }
+.dd-scale__track { position: absolute; left: 0; right: 0; top: 30px; height: 10px; border-radius: 5px; background: var(--hair); overflow: hidden; }
+.dd-scale__track i { display: block; height: 100%; background: var(--brand-green); }
+.dd-scale__mark { position: absolute; top: 0; bottom: 0; width: 0; }
+.dd-scale__label { position: absolute; transform: translateX(-50%); white-space: nowrap; font-size: 0.72rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.dd-scale__line::before { content: ""; position: absolute; left: -1px; top: 22px; height: 26px; border-left: 2px solid var(--ink); }
+.dd-scale__line .dd-scale__label { top: 0; }
+.dd-scale__line--25 .dd-scale__label { transform: translateX(-85%); }
+.dd-scale__now::before, .dd-scale__was::before { content: ""; position: absolute; left: -7px; top: 28px; width: 14px; height: 14px; border-radius: 50%; }
+.dd-scale__now::before { background: var(--brand-green); box-shadow: 0 0 0 2px #fff; }
+.dd-scale__was::before { background: #fff; box-shadow: inset 0 0 0 2px var(--muted); }
+.dd-scale__now .dd-scale__label, .dd-scale__was .dd-scale__label { top: 46px; }
+.dd-scale__now .dd-scale__label { font-weight: 700; color: var(--ink); }
+
+.dd-fit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.dd-fit__card { border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; min-width: 0; }
+.dd-fit__card .dd-photo__btn { border-radius: 0; }
+.dd-fit__body { padding: 10px 12px 12px; }
+.dd-fit__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--ink); }
+.dd-fit__where { margin-top: 4px; font-size: 0.84rem; font-weight: 600; color: var(--ink); }
+.dd-fit__ev { margin-top: 4px; font-size: 0.78rem; color: var(--ink-2); }
+.dd-fit__comps { margin-top: 4px; font-size: 0.76rem; color: var(--muted); }
+.dd-pill { padding: 1px 9px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+.dd-pill--fits { background: var(--ok-bg); color: var(--brand-green); }
+.dd-pill--likely { background: var(--pending-bg); color: var(--pending-ink); }
+.dd-pill--unknown { background: #eef0ef; color: var(--muted); }
+
+.dd-list { margin: 6px 0 0; padding-left: 18px; font-size: 0.84rem; color: var(--ink); }
+.dd-list li { margin: 2px 0; }
+.dd-risks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; }
+.dd-risks li { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-content: start; column-gap: 8px; font-size: 0.84rem; color: var(--ink-2); }
+.dd-risks li b { color: var(--ink); }
+.dd-risks li span:last-child { grid-column: 2; }
+.dd-risks__icon { grid-row: span 2; width: 20px; height: 20px; border-radius: 50%; background: var(--pending-bg); color: var(--pending-ink); font-weight: 800; font-size: 0.75rem; display: inline-flex; align-items: center; justify-content: center; }
+.dd-sources { margin: 16px 0 0; font-size: 0.74rem; color: var(--muted); }
+.dd-sources a { color: var(--muted); }
+
+@media (max-width: 900px) {
+  .dd-fit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .dd-target__top, .dd-fit, .dd-risks { grid-template-columns: 1fr; }
+  .dd-scale__label { font-size: 0.66rem; }
+}
+
+.dd-scale-legend { display: none; flex-wrap: wrap; gap: 4px 14px; margin-top: 4px; font-size: 0.76rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.dd-scale-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.dd-k { display: inline-block; }
+.dd-k--now { width: 10px; height: 10px; border-radius: 50%; background: var(--brand-green); }
+.dd-k--was { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--muted); }
+.dd-k--line { width: 2px; height: 12px; background: var(--ink); }
+@media (max-width: 640px) {
+  .dd-scale { height: 30px; }
+  .dd-scale__track { top: 10px; }
+  .dd-scale__label { display: none; }
+  .dd-scale__line::before { top: 4px; height: 22px; }
+  .dd-scale__now::before, .dd-scale__was::before { top: 8px; }
+  .dd-scale-legend { display: flex; }
+}

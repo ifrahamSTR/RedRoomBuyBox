@@ -24,6 +24,12 @@
    "name": "Romantic Red Room",
    "url": "https://www.airbnb.com/rooms/1531268498318778805",
    "photosViewed": 51
+  },
+  "636-bear-paw": {
+   "slug": "target-636-bear-paw",
+   "name": "636 Bear Paw Trl (acquisition target)",
+   "url": "https://www.metrobrokers.com/buy/636-bear-paw-trail-blue-ridge-ga-30513-436174",
+   "photosViewed": 73
   }
  },
  "note": "Every listing photo was viewed. Skipped: people (incl. people on the projector screen), figurative or explicit art, explicit book covers and games, review screenshots, logo collages, and rooms outside these categories (kitchens, baths, living rooms).",
@@ -405,6 +411,111 @@
    "category": "kink-equipment",
    "caption": "Chains, padded cuffs and a studded paddle",
    "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1531268498318778805/original/2148c22f-416a-450e-a9e6-f8940c6f17d3.jpeg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/11-exterior.jpg",
+   "category": "exterior",
+   "caption": "Front: covered wraparound porch and gravel drive",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/11.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/19-exterior.jpg",
+   "category": "exterior",
+   "caption": "Rear: two-story walkout, deck on tall posts",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/19.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/72-aerial.jpg",
+   "category": "aerial",
+   "caption": "From above: house, garage and clearing in the woods",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/72.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/35-aerial.jpg",
+   "category": "aerial",
+   "caption": "Aerial: roof hidden in tree canopy",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/35.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/34-deck.jpg",
+   "category": "deck",
+   "caption": "Open wraparound deck with cable railing",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/34.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/12-porch.jpg",
+   "category": "porch",
+   "caption": "Covered porch with French doors",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/12.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/25-porch.jpg",
+   "category": "porch",
+   "caption": "Covered porch and open deck, side view",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/25.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/13-bedroom.jpg",
+   "category": "bedroom",
+   "caption": "Main-floor bedroom, 11 x 12 ft",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/13.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/44-bedroom.jpg",
+   "category": "bedroom",
+   "caption": "Terrace-level bedroom, 9 x 12 ft",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/44.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/46-basement.jpg",
+   "category": "basement",
+   "caption": "Unfinished terrace level: concrete floor, wood stove",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/46.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/48-basement.jpg",
+   "category": "basement",
+   "caption": "Unfinished terrace level, French doors to outside",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/48.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/50-bath.jpg",
+   "category": "bath",
+   "caption": "The only bathroom",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/50.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/30-fire-pit.jpg",
+   "category": "fire-pit",
+   "caption": "Existing fire-pit ring behind a privacy screen",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/30.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/53-exterior.jpg",
+   "category": "exterior",
+   "caption": "Detached garage and gravel parking",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/53.jpg"
+  },
+  {
+   "listingId": "636-bear-paw",
+   "file": "assets/deep-dive/blue-ridge/target-636-bear-paw/41-lot.jpg",
+   "category": "lot",
+   "caption": "Spring-fed stream on the lot",
+   "sourceUrl": "https://resources.ansleyre.com/images/NEGA/00/436/174/6aadc6ecee7a6/41.jpg"
   }
  ],
  "gaps": [
