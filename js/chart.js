@@ -37,7 +37,8 @@ const Chart = (() => {
     host = document.getElementById("chart");
     const markets = App.chartMarkets();
     const rooms = App.rooms();
-    const W = Math.max(300, host.clientWidth - 8);
+    const cs = getComputedStyle(host);
+    const W = Math.max(300, host.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
     const narrow = W < 560;
     const LBL = narrow ? 112 : 168;
     const plotW = W - LBL - (narrow ? 22 : RIGHT);

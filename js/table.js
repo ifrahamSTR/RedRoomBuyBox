@@ -73,7 +73,7 @@ const Table = (() => {
       U.el("td.prop", null,
         U.el("a", { href: r.url, target: "_blank", rel: "noopener", on: { click: (e) => e.stopPropagation() } }, r.title, U.extIcon()),
         U.el("span.sub", null, pill, meta.join(" · "),
-          r.inCleaned ? null : U.el("span", { title: "Missing from the workbook's Cleaned_Data (its listing scrape failed); ranked as if it were in the set" }, "not in cleaned set"))),
+          r.inCleaned ? null : U.el("span.pill.pill--new", { title: "Missing from the workbook's Cleaned_Data (its listing scrape failed); ranked as if it were in the set" }, "not in cleaned set"))),
       U.el("td.num", null, String(r.bedrooms)),
       U.el("td.num", null, U.el("span.big", null, U.money(r.revenue))),
       U.el("td.num", null, U.el("span.big", null, U.pct(r.pctl12)),

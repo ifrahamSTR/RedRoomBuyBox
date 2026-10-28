@@ -67,7 +67,10 @@ const DeepDive = (() => {
   const imgsOf = (man, id, cat) => man.images.filter((m) => m.listingId === id && (!cat || m.category === cat));
   const compLink = (c) => U.el("a.dd-link", { href: c.url, target: "_blank", rel: "noopener" }, c.name, U.extIcon());
   const cap1 = (x) => x ? x[0].toUpperCase() + x.slice(1) : "";
-  const head = (title, note) => U.el("div.dd-head", null, U.el("h3", null, title), note ? U.el("p.dd-note", null, note) : null);
+  /** A finding (green) or caveat (amber) set apart from the visuals, so it is read, not skipped. */
+  const callout = (text, kind = "find") => text ? U.el("p", { class: "dd-callout dd-callout--" + kind },
+    U.el("span.dd-callout__k", null, kind === "find" ? "Key finding" : "Caveat"), U.el("span", null, text)) : null;
+  const head = (title, note) => [U.el("div.dd-head", null, U.el("h3", null, title)), callout(note)];
 
   /** First photo of a category: the top comp's if it has one, else the next comp by revenue. */
   function pick(t, man, cat) {
@@ -208,7 +211,7 @@ const DeepDive = (() => {
       U.el("div.dd-sub-block", null,
         U.el("h4", null, "Price vs the comp file's lines"),
         scale, legend,
-        U.el("p.dd-note", null, (under ? "Below the 30% line" : "Above the 30% line") +
+        callout((under ? "Below the 30% line" : "Above the 30% line") +
           `: a year at the comp average (${k1(L.compAvg)}) = ${pct0(L.yieldNow)} of the price` +
           (L.yieldEarlier ? ` (${pct0(L.yieldEarlier)} at ${k1(pr.earlier)}).` : "."))),
       U.el("div.dd-sub-block", null, U.el("h4", null, "Room for the must-haves"), fit),
@@ -251,10 +254,9 @@ const DeepDive = (() => {
       U.el("b", null, "+" + U.money(g.value)), U.el("span", null, `+${(g.pct * 100).toFixed(1)}%`),
       U.el("span.dd-step__label", null, g.label));
     return U.el("div.dd-block", null,
-      head("Revenue ladder", `+${U.money(L.total.value)} (+${(L.total.pct * 100).toFixed(1)}%) from a plain home to waterfront + red room.`),
+      head("Revenue ladder", `+${U.money(L.total.value)} (+${(L.total.pct * 100).toFixed(1)}%) from a plain home to waterfront + red room. ${L.takeaway}`),
       U.el("div.dd-ladder", null, card(L.steps[0]), step(L.gaps[0]), card(L.steps[1]), step(L.gaps[1]), card(L.steps[2])),
-      U.el("p.dd-note.dd-note--below", null, L.takeaway),
-      U.el("p.dd-caveat", null, L.caveat));
+      callout(L.caveat, "caveat"));
   }
 
   // ---- buy box: what to buy, and the price bands ----
@@ -321,6 +323,7 @@ const DeepDive = (() => {
     const t = D.tabs.find((x) => x.id === id) || D.tabs[0];
     active = t.id;
     renderTabs();
+    document.querySelectorAll(".dd-market").forEach((e) => { e.textContent = t.label; });
     const body = document.getElementById("dd-body"), gal = document.getElementById("dd-galleries");
     if (t.comingSoon) {
       body.replaceChildren(U.el("div.dd-soon", null, U.el("b", null, "Coming soon"), U.el("span", null, `${t.label} deep dive`)));
