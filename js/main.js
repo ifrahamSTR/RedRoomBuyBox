@@ -159,8 +159,9 @@ const App = (() => {
     });
   }
 
-  /** A deep-dive tab was chosen: keep it in the URL. */
-  function setDeepDive(id) { state.deepDive = id; writeHash(); }
+  /** A deep-dive tab was chosen. It is not kept in the URL, so the page
+      always opens on the first tab (Blue Ridge); a #deep-dive= link still works. */
+  function setDeepDive() { state.deepDive = null; writeHash(); }
 
   return { data, state, marketById, roomById, rooms, chartMarkets, marketRank, setHot, select, setDeepDive, init };
 })();
