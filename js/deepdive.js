@@ -340,12 +340,6 @@ window.DEEPDIVE = {
      }
     }
    ]
-  },
-  {
-   "id": "urban",
-   "label": "Urban market",
-   "kind": "Coming soon",
-   "comingSoon": true
   }
  ]
 };
