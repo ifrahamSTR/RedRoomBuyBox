@@ -519,3 +519,25 @@ button { font: inherit; }
   .dd-scale__now::before, .dd-scale__was::before { top: 8px; }
   .dd-scale-legend { display: flex; }
 }
+
+/* acquisition targets: compact cards that expand */
+.dd-targets { display: grid; gap: 12px; padding-top: 4px; }
+.dd-target { padding-top: 0; border: 1px solid var(--hair); border-radius: 12px; background: var(--surface); }
+.dd-target[open] { box-shadow: var(--shadow); }
+.dd-tsum { display: grid; grid-template-columns: 132px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 10px 14px 10px 10px; cursor: pointer; list-style: none; }
+.dd-tsum::-webkit-details-marker { display: none; }
+.dd-tsum:focus-visible { outline: 2px solid var(--brand-gold); outline-offset: 2px; border-radius: 12px; }
+.dd-tsum__img { width: 132px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; display: block; }
+.dd-tsum__title { font-weight: 650; color: var(--ink); }
+.dd-tsum__price { margin-top: 2px; font-size: 0.84rem; color: var(--ink-2); }
+.dd-tsum__price b { color: var(--ink); font-size: 1rem; }
+.dd-tsum .dd-chips { margin-top: 6px; align-items: center; }
+.dd-tsum__toggle::after { content: "Details ▾"; font-size: 0.82rem; font-weight: 600; color: var(--brand-green); white-space: nowrap; }
+.dd-target[open] .dd-tsum__toggle::after { content: "Hide ▴"; }
+.dd-target__body { padding: 0 14px 16px; border-top: 1px solid var(--hair); }
+.dd-target__body > .dd-head { margin: 12px 0 10px; }
+@media (max-width: 640px) {
+  .dd-tsum { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; align-items: start; }
+  .dd-tsum__img { width: 88px; }
+  .dd-tsum__toggle { grid-column: 1 / -1; justify-self: end; }
+}

@@ -147,8 +147,9 @@ const DeepDive = (() => {
   const VERDICT = { fits: "Fits", likely: "Likely", unknown: "Unknown" };
   const srcTag = (s) => U.el("span.dd-tag", null, SRC[s] || s);
 
-  function target(t, man) {
-    const T = t.target, L = T.lines, pr = T.price;
+  /** One acquisition target: a compact card that expands to the full check. */
+  function target(T, man) {
+    const L = T.lines, pr = T.price;
     const list = imgsOf(man, T.id).map(fromManifest);
     const pic = (file, opts = {}) => {
       const k = list.findIndex((p) => p.file.endsWith("/" + file));
@@ -181,11 +182,22 @@ const DeepDive = (() => {
         U.el("div.dd-fit__comps", null, f.comps)))));
 
     const lines = (arr) => U.el("ul.dd-list", null, arr.map((x) => U.el("li", null, x.text, " ", srcTag(x.src))));
-    return U.el("div.dd-block.dd-target", null,
-      U.el("div.dd-head", null, U.el("h3", null, "Acquisition target"),
-        U.el("a.dd-link", { href: T.url, target: "_blank", rel: "noopener" }, T.address, U.extIcon())),
+    const thumb = list.find((p) => p.file.endsWith("/" + T.thumb)) || list[0];
+    const counts = {};
+    T.fit.forEach((f) => { counts[f.verdict] = (counts[f.verdict] || 0) + 1; });
+    const summary = U.el("summary.dd-tsum", null,
+      thumb ? U.el("img.dd-tsum__img", { src: thumb.file, alt: thumb.alt, loading: "lazy" }) : null,
+      U.el("div.dd-tsum__main", null,
+        U.el("div.dd-tsum__title", null, T.name, U.el("span.dd-sub", null, T.address.split(", ").slice(1).join(", "))),
+        U.el("div.dd-tsum__price", null, U.el("b", null, U.money(pr.value)), ` · ${pr.status} · checked ${fmtDate}`),
+        U.el("div.dd-chips", null, (T.chips || []).map((c) => U.el("span.dd-chip", null, c)),
+          U.el("span.dd-chip", null, `${pct0(L.yieldNow)} of price / yr at comp avg`),
+          Object.keys(VERDICT).filter((v) => counts[v]).map((v) => U.el("span", { class: "dd-pill dd-pill--" + v }, `${VERDICT[v]} ${counts[v]}`)))),
+      U.el("span.dd-tsum__toggle", { "aria-hidden": "true" }));
+    return U.el("details.dd-target", null, summary, U.el("div.dd-target__body", null,
+      U.el("div.dd-head", null, U.el("a.dd-link", { href: T.url, target: "_blank", rel: "noopener" }, "View listing", U.extIcon())),
       U.el("div.dd-target__top", null,
-        pic("11-exterior.jpg", { caption: false }),
+        pic(T.thumb, { caption: false }),
         U.el("div.dd-target__facts", null,
           U.el("div.dd-price", null, U.el("b", null, U.money(pr.value)), U.el("span", null, `${pr.status} · checked ${fmtDate}`), srcTag(pr.src)),
           pr.earlier ? U.el("div.dd-price__was", null, `Was ${U.money(pr.earlier)}, ${pr.earlierNote} `, srcTag(pr.earlierSrc)) : null,
@@ -199,12 +211,20 @@ const DeepDive = (() => {
       U.el("div.dd-sub-block", null, U.el("h4", null, "Room for the must-haves"), fit),
       U.el("div.dd-sub-block", null,
         U.el("div.dd-pair", null,
-          U.el("div.dd-card", null, pic("72-aerial.jpg", { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "Seclusion"), lines(T.seclusion))),
-          U.el("div.dd-card", null, pic("35-aerial.jpg", { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "View"), lines(T.view))))),
+          U.el("div.dd-card", null, pic(T.seclusionPhoto, { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "Seclusion"), lines(T.seclusion))),
+          U.el("div.dd-card", null, pic(T.viewPhoto, { caption: false }), U.el("div.dd-card__body", null, U.el("div.dd-card__name", null, "View"), lines(T.view))))),
       U.el("div.dd-sub-block", null, U.el("h4", null, "Risks"),
         U.el("ul.dd-risks", null, T.risks.map((r) => U.el("li", null, U.el("span.dd-risks__icon", { "aria-hidden": "true" }, "!"), U.el("b", null, r.flag), U.el("span", null, r.detail))))),
       U.el("p.dd-sources", null, "Sources: ", T.sources.flatMap((x, k) => [k ? " · " : "", U.el("a", { href: x.url, target: "_blank", rel: "noopener" }, x.label)]),
-        ` · checked ${fmtDate}. Zillow blocked automated access.`));
+        ` · checked ${fmtDate}.` + (T.sourceNote ? " " + T.sourceNote : ""))));
+  }
+
+  function targets(t, man) {
+    const el = document.getElementById("dd-targets");
+    if (!el) return;
+    const ts = t.targets || [];
+    document.getElementById("dd-targets-count").textContent = ts.length ? `· ${ts.length}` : "";
+    el.replaceChildren(...(ts.length ? ts.map((T) => target(T, man)) : [U.el("p.dd-note", null, "No targets yet.")]));
   }
 
   // ---- "Inside the red rooms": one scrolling gallery per comp ----
@@ -257,6 +277,8 @@ const DeepDive = (() => {
     if (t.comingSoon) {
       body.replaceChildren(U.el("div.dd-soon", null, U.el("b", null, "Coming soon"), U.el("span", null, `${t.label} deep dive`)));
       gal.replaceChildren(U.el("div.dd-soon", null, U.el("b", null, "Coming soon")));
+      document.getElementById("dd-targets").replaceChildren(U.el("div.dd-soon", null, U.el("b", null, "Coming soon")));
+      document.getElementById("dd-targets-count").textContent = "";
     } else {
       let man = manifests[t.id];
       if (!man) {
@@ -264,8 +286,9 @@ const DeepDive = (() => {
         catch (e) { man = { images: [], gaps: [] }; console.warn("Deep dive photos need the site served over http(s):", e.message); }
       }
       if (active !== t.id) return;
-      body.replaceChildren(hero(t, man), mustHaves(t, man), matrix(t), designPremium(t, man), t.target ? target(t, man) : "");
+      body.replaceChildren(hero(t, man), mustHaves(t, man), matrix(t), designPremium(t, man));
       gal.replaceChildren(...t.comps.map((c, i) => gallery(t, man, c, i)));
+      targets(t, man);
     }
     if (scroll) document.getElementById("deep-dive").scrollIntoView({ behavior: "smooth", block: "start" });
   }
