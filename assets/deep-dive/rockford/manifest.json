@@ -1,0 +1,185 @@
+{
+ "market": "rockford",
+ "listings": {
+  "962965073229904725": {
+   "slug": "red-room-waterfront",
+   "name": "Waterfront + Red Room",
+   "url": "https://www.airbnb.com/rooms/962965073229904725",
+   "photosViewed": 49
+  },
+  "1351877015283554201": {
+   "slug": "waterfront-retreat",
+   "name": "Waterfront, no Red Room",
+   "url": "https://www.airbnb.com/rooms/1351877015283554201",
+   "photosViewed": 59
+  },
+  "816806255699511804": {
+   "slug": "non-waterfront",
+   "name": "Non-waterfront retreat",
+   "url": "https://www.airbnb.com/rooms/816806255699511804",
+   "photosViewed": 25
+  }
+ },
+ "note": "Every listing photo was viewed (49, 59 and 25). Skipped: art showing people, a suggestive figurine, review collages, and rooms outside these categories (kitchens, baths, living rooms).",
+ "images": [
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/32-hot-tub.jpg",
+   "category": "hot-tub",
+   "caption": "Hot tub on the covered patio, river beyond",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTYyOTY1MDczMjI5OTA0NzI1/original/c1e36919-1ba8-4f5f-8488-1183ec97b7fc.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/30-waterfront.jpg",
+   "category": "waterfront",
+   "caption": "Wide river view from the property",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/9cac905d-496f-4d0f-b7f6-4749cc368805.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/31-waterfront.jpg",
+   "category": "waterfront",
+   "caption": "Calm river view from the yard",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/579c69dd-ac25-4502-868f-6c08c9085f5e.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/46-waterfront.jpg",
+   "category": "waterfront",
+   "caption": "Sunset over the river",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-962965073229904725/original/295249ec-a365-44bf-9db4-4d3923bd0706.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/45-fire-pit.jpg",
+   "category": "fire-pit",
+   "caption": "Fire-pit ring on the lawn by the river",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-962965073229904725/original/c2ba5e17-5dd9-4617-a879-bce02cfa77e5.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/35-outdoor-dining.jpg",
+   "category": "outdoor-dining",
+   "caption": "Covered patio with dining table and grill",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTYyOTY1MDczMjI5OTA0NzI1/original/39751634-a71a-48a9-b4c5-2793d2e1b388.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/26-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Bedroom with red curtains and red-black decor",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/526ec830-c2fd-4203-a1a7-cd0f36a5d0a6.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/25-themed-bedroom.jpg",
+   "category": "themed-bedroom",
+   "caption": "Red curtains, black-and-red pillows, abstract art",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/3996f556-ac7a-4ceb-b7ec-21407ebe5453.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/39-playroom.jpg",
+   "category": "playroom",
+   "caption": "Red room: king bed under red light, neon sign",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/18939564-a98e-4195-bc3b-bc8a834bfb60.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/44-playroom.jpg",
+   "category": "playroom",
+   "caption": "Red-room bed with rose-petal heart",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTYyOTY1MDczMjI5OTA0NzI1/original/6f4cb612-a6c3-458b-ad3f-b513bfc4e0aa.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/40-playroom.jpg",
+   "category": "playroom",
+   "caption": "Mirror: 'Know your safeword', swing reflected",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-962965073229904725/original/2468bd7b-c9fb-49a7-ad5a-aa927d85168c.jpeg"
+  },
+  {
+   "listingId": "962965073229904725",
+   "file": "assets/deep-dive/rockford/red-room-waterfront/42-kink-equipment.jpg",
+   "category": "kink-equipment",
+   "caption": "Red-room amenity list over a wall of floggers",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTYyOTY1MDczMjI5OTA0NzI1/original/0d4a6a7f-853b-4c71-a953-262c53600f40.jpeg"
+  },
+  {
+   "listingId": "1351877015283554201",
+   "file": "assets/deep-dive/rockford/waterfront-retreat/17-waterfront.jpg",
+   "category": "waterfront",
+   "caption": "Lawn with cornhole down to the river",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTM1MTg3NzAxNTI4MzU1NDIwMQ==/original/9f1a20ef-a862-4cba-ba16-e3417d9860c3.jpeg"
+  },
+  {
+   "listingId": "1351877015283554201",
+   "file": "assets/deep-dive/rockford/waterfront-retreat/04-fire-pit.jpg",
+   "category": "fire-pit",
+   "caption": "Fire pit and Adirondack chairs by the river",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1351877015283554201/original/6137ba10-0d9e-4bed-a45c-2ae07ab7e4da.jpeg"
+  },
+  {
+   "listingId": "1351877015283554201",
+   "file": "assets/deep-dive/rockford/waterfront-retreat/18-outdoor-dining.jpg",
+   "category": "outdoor-dining",
+   "caption": "Dining table set beside the river",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1351877015283554201/original/0f8d4bc9-acbc-4679-b5e5-1859d75e11fb.jpeg"
+  },
+  {
+   "listingId": "1351877015283554201",
+   "file": "assets/deep-dive/rockford/waterfront-retreat/29-bedroom.jpg",
+   "category": "bedroom",
+   "caption": "Bedroom with pink throw and breakfast tray",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/hosting/Hosting-1351877015283554201/original/6e2d3d5d-c770-47bd-b3fc-f4c185587f60.jpeg"
+  },
+  {
+   "listingId": "816806255699511804",
+   "file": "assets/deep-dive/rockford/non-waterfront/23-exterior.jpg",
+   "category": "exterior",
+   "caption": "Ranch house with front lawn and garage",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/2287f656-0cfa-45d2-a5a9-23b126eebd5b.jpg"
+  },
+  {
+   "listingId": "816806255699511804",
+   "file": "assets/deep-dive/rockford/non-waterfront/22-exterior.jpg",
+   "category": "exterior",
+   "caption": "Fenced backyard with patio",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/792bbc79-0f61-4fa5-a2f3-31d83f714083.jpg"
+  },
+  {
+   "listingId": "816806255699511804",
+   "file": "assets/deep-dive/rockford/non-waterfront/14-bedroom.jpg",
+   "category": "bedroom",
+   "caption": "Main bedroom, light coastal decor",
+   "sourceUrl": "https://a0.muscache.com/im/pictures/miso/Hosting-816806255699511804/original/527c109c-9896-41fe-93b7-c6640d2ed5df.jpeg"
+  }
+ ],
+ "gaps": [
+  {
+   "listingId": "962965073229904725",
+   "category": "exterior",
+   "file": null,
+   "note": "No full exterior photo of the house in the listing."
+  },
+  {
+   "listingId": "962965073229904725",
+   "category": "themed-bedroom",
+   "file": null,
+   "note": "Bedrooms 1 (photos 20, 21, 24) skipped: framed photos of people on the wall."
+  },
+  {
+   "listingId": "1351877015283554201",
+   "category": "hot-tub",
+   "file": null,
+   "note": "Listing has no hot tub."
+  },
+  {
+   "listingId": "816806255699511804",
+   "category": "waterfront",
+   "file": null,
+   "note": "Not on the water."
+  }
+ ]
+}

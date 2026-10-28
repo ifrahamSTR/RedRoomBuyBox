@@ -77,12 +77,13 @@ const DeepDive = (() => {
 
   // ---- sections ----
   function hero(t, man) {
-    const top = t.comps[0], b = t.bench;
-    const ext = imgsOf(man, top.id, "exterior")[0];
+    const top = t.comps[0], b = t.bench, H = t.hero || {};
+    const ext = H.photo ? imgsOf(man, top.id).find((m) => m.file.endsWith("/" + H.photo)) : imgsOf(man, top.id, "exterior")[0];
     const tile = (label, value, sub) => U.el("div.kpi", null, U.el("div.kpi__label", null, label), U.el("div.kpi__value", null, value), U.el("div.kpi__sub", null, sub));
     return U.el("div.dd-block", null,
       ext ? U.el("div.dd-hero", null, photoFigure(fromManifest(ext), { caption: false }),
-        U.el("div.dd-hero__tag", null, `${top.name} · ${top.br}BR ${top.note} · ${k1(top.revenue)}`)) : null,
+        U.el("div.dd-hero__tag", null, H.tag || `${top.name} · ${top.br}BR ${top.note} · ${k1(top.revenue)}`)) : null,
+      t.kpis ? U.el("div.kpis.dd-kpis", null, t.kpis.map((k) => tile(k.label, (k.sign ? "+" : "") + k1(k.value), k.sub))) :
       U.el("div.kpis.dd-kpis", null,
         tile("Comp avg revenue", k1(b.compAvgRevenue), `${t.comps.length} red rooms`),
         tile("Floor", k1(b.compFloor) + "+", "lowest comp"),
@@ -91,14 +92,15 @@ const DeepDive = (() => {
   }
 
   function mustHaves(t, man) {
-    const tiles = [["playroom", "Kink playroom"], ["hot-tub", "Hot tub"], ["sauna", "Sauna"], ["fire-pit", "Fire pit"], ["outdoor-dining", "Outdoor dining"]];
-    const row = U.el("div.dd-strip");
-    tiles.forEach(([cat, label]) => {
+    const tiles = (t.mustHaves || [{ cat: "playroom", label: "Kink playroom" }, { cat: "hot-tub", label: "Hot tub" },
+      { cat: "sauna", label: "Sauna", badge: t.saunaBadge }, { cat: "fire-pit", label: "Fire pit" }, { cat: "outdoor-dining", label: "Outdoor dining" }]);
+    const row = U.el("div.dd-strip", { style: `--n:${tiles.length}` });
+    tiles.forEach(({ cat, label, badge }) => {
       const hit = pick(t, man, cat);
       const fig = hit ? photoFigure(fromManifest(hit.m), { caption: false }) : U.el("figure.dd-photo.dd-photo--empty", null, U.el("span", null, "No photo"));
       const cap = U.el("figcaption", null, U.el("b", null, label), hit && hit.comp !== t.comps[0] ? U.el("span.dd-src", null, hit.comp.name) : null);
       fig.append(cap);
-      if (cat === "sauna") fig.append(U.el("span.dd-badge", null, t.saunaBadge));
+      if (badge) fig.append(U.el("span.dd-badge", null, badge));
       row.append(fig);
     });
     return U.el("div.dd-block", null, head("Must-haves"), row);
@@ -122,7 +124,7 @@ const DeepDive = (() => {
         U.el("tr", null, U.el("th", { scope: "row", colspan: 2 }, "Top 10% 1–2BR"), t.amenities.map((a) => U.el("td", null, pct0(a.top10))), U.el("td"))));
     const full = t.comps.filter((c) => c.score === k).length;
     return U.el("div.dd-block", null,
-      head("Amenity matrix", `${full} of ${t.comps.length} comps have all ${k} amenities; only ${t.bench.all4} of ${t.bench.n12} Blue Ridge 1–2BRs do.`),
+      head("Amenity matrix", t.matrixNote || `${full} of ${t.comps.length} comps have all ${k} amenities; only ${t.bench.all4} of ${t.bench.n12} ${t.label.split(",")[0]} 1–2BRs do.`),
       U.el("div.dd-scroll", { tabindex: 0, role: "region", "aria-label": "Amenity matrix" }, tbl));
   }
 
@@ -143,8 +145,8 @@ const DeepDive = (() => {
   }
 
   // ---- acquisition target: does the house and lot have room for the must-haves? ----
-  const SRC = { listing: "listing", notes: "your notes", photo: "photo" };
-  const VERDICT = { fits: "Fits", likely: "Likely", unknown: "Unknown" };
+  const SRC = { listing: "listing", notes: "your notes", photo: "photo", search: "search result" };
+  const VERDICT = { fits: "Fits", likely: "Likely", tight: "Tight", unknown: "Unknown" };
   const srcTag = (s) => U.el("span.dd-tag", null, SRC[s] || s);
 
   /** One acquisition target: a compact card that expands to the full check. */
@@ -152,6 +154,7 @@ const DeepDive = (() => {
     const L = T.lines, pr = T.price;
     const list = imgsOf(man, T.id).map(fromManifest);
     const pic = (file, opts = {}) => {
+      if (!file) return null;
       const k = list.findIndex((p) => p.file.endsWith("/" + file));
       return k < 0 ? U.el("figure.dd-photo.dd-photo--empty", null, U.el("span", null, "No photo")) : photoFigure(list[k], { list, index: k, ...opts });
     };
@@ -186,7 +189,7 @@ const DeepDive = (() => {
     const counts = {};
     T.fit.forEach((f) => { counts[f.verdict] = (counts[f.verdict] || 0) + 1; });
     const summary = U.el("summary.dd-tsum", null,
-      thumb ? U.el("img.dd-tsum__img", { src: thumb.file, alt: thumb.alt, loading: "lazy" }) : null,
+      thumb ? U.el("img.dd-tsum__img", { src: thumb.file, alt: thumb.alt, loading: "lazy" }) : U.el("span.dd-tsum__img.dd-tsum__img--none", null, "No photos"),
       U.el("div.dd-tsum__main", null,
         U.el("div.dd-tsum__title", null, T.name, U.el("span.dd-sub", null, T.address.split(", ").slice(1).join(", "))),
         U.el("div.dd-tsum__price", null, U.el("b", null, U.money(pr.value)), ` · ${pr.status} · checked ${fmtDate}`),
@@ -225,6 +228,51 @@ const DeepDive = (() => {
     const ts = t.targets || [];
     document.getElementById("dd-targets-count").textContent = ts.length ? `· ${ts.length}` : "";
     el.replaceChildren(...(ts.length ? ts.map((T) => target(T, man)) : [U.el("p.dd-note", null, "No targets yet.")]));
+  }
+
+  // ---- revenue ladder: plain home -> + water -> + red room ----
+  function ladder(t, man) {
+    const L = t.ladder, byId = Object.fromEntries(t.comps.map((c) => [c.id, c]));
+    const ph = (id) => {
+      const m = imgsOf(man, id).find((x) => x.file.endsWith("/" + L.photos[id]));
+      return m ? photoFigure(fromManifest(m), { caption: false }) : null;
+    };
+    const card = (id) => {
+      const c = byId[id];
+      return U.el("div.dd-card" + (c.role === "red" ? ".dd-top" : ""), null, ph(id),
+        U.el("div.dd-card__body", null,
+          U.el("div.dd-card__name", null, compLink(c)),
+          U.el("div.dd-card__build", null, cap1(c.note)),
+          U.el("div.dd-card__stats", null, U.el("b", null, U.money(c.revenue)), ` · #${c.rank} of ${t.bench.n12}`),
+          U.el("div.dd-card__stats.dd-card__stats--tight", null, `${U.money(Math.round(c.adr))} a night · ${pct0(c.occupancy)} booked`)));
+    };
+    const step = (g) => U.el("div.dd-step", null,
+      U.el("span.dd-step__arrow", { "aria-hidden": "true" }, "→"),
+      U.el("b", null, "+" + U.money(g.value)), U.el("span", null, `+${(g.pct * 100).toFixed(1)}%`),
+      U.el("span.dd-step__label", null, g.label));
+    return U.el("div.dd-block", null,
+      head("Revenue ladder", `+${U.money(L.total.value)} (+${(L.total.pct * 100).toFixed(1)}%) from a plain home to waterfront + red room.`),
+      U.el("div.dd-ladder", null, card(L.steps[0]), step(L.gaps[0]), card(L.steps[1]), step(L.gaps[1]), card(L.steps[2])),
+      U.el("p.dd-note.dd-note--below", null, L.takeaway),
+      U.el("p.dd-caveat", null, L.caveat));
+  }
+
+  // ---- buy box: what to buy, and the price bands ----
+  function buyBox(t) {
+    const B = t.buyBox;
+    const max = Math.ceil((Math.max(...B.bases.map((b) => b.p20)) * 1.08) / 50000) * 50000;
+    const at = (v) => (v / max) * 100;
+    return U.el("div.dd-block", null, head("Buy box"),
+      U.el("div.dd-buybox", null,
+        U.el("ul.dd-criteria", null, B.criteria.map((c) => U.el("li", null,
+          U.el("span.dd-check", { "aria-hidden": "true" }, "✓"), U.el("b", null, c.label), U.el("span", null, c.why)))),
+        U.el("div.dd-bands", null,
+          U.el("h4", null, "Price where a year's revenue = 30% → 20% of price"),
+          B.bases.map((b) => U.el("div.dd-band", null,
+            U.el("div.dd-band__label", null, b.label),
+            U.el("div.dd-band__track", null, U.el("span.dd-band__fill", { style: `left:${at(b.p30)}%;width:${at(b.p20) - at(b.p30)}%` })),
+            U.el("div.dd-band__vals", null, `30% ${k1(b.p30)} · 25% ${k1(b.p25)} · 20% ${k1(b.p20)}`))),
+          U.el("div.dd-band__axis", null, U.el("span", null, "$0"), U.el("span", null, k1(max))))));
   }
 
   // ---- "Inside the red rooms": one scrolling gallery per comp ----
@@ -286,8 +334,9 @@ const DeepDive = (() => {
         catch (e) { man = { images: [], gaps: [] }; console.warn("Deep dive photos need the site served over http(s):", e.message); }
       }
       if (active !== t.id) return;
-      body.replaceChildren(hero(t, man), mustHaves(t, man), matrix(t), designPremium(t, man));
-      gal.replaceChildren(...t.comps.map((c, i) => gallery(t, man, c, i)));
+      body.replaceChildren(hero(t, man), mustHaves(t, man), t.ladder ? ladder(t, man) : "", matrix(t),
+        t.designPremium ? designPremium(t, man) : "", t.buyBox ? buyBox(t) : "");
+      gal.replaceChildren(...t.comps.filter((c) => c.redRoom !== false).map((c, i) => gallery(t, man, c, i)));
       targets(t, man);
     }
     if (scroll) document.getElementById("deep-dive").scrollIntoView({ behavior: "smooth", block: "start" });
