@@ -2,7 +2,8 @@
    than CLUSTER_PX on screen are drawn as one count bubble instead (at the
    national zoom Blue Ridge, Asheville and Charlotte overlap). Basemap: Esri
    World Light Gray, as on the Idaho discovery site (no API key), with OSM
-   streets as the alternative. */
+   streets as the alternative. Two tabs: the cleaned market data (default,
+   never kept in the URL) and the nationwide list as given, not cleaned. */
 const MapView = (() => {
   const US = [[24.3, -125.0], [49.5, -66.8]];
   const CLUSTER_PX = 30;
@@ -14,9 +15,13 @@ const MapView = (() => {
   const HOME_COLOR = "#8a9792"; // the other 1-2BR homes
 
   let map, roomLayer, clusterLayer, homeLayer, homeRenderer, bases, baseKey = "light";
-  const markers = {};
+  const markers = {}; // red rooms (cleaned tab)
+  const listMarkers = {}; // nationwide list (other tab)
+  let tab = "cleaned", active = markers, legend;
   let clusterOf = {};
   let visible = [];
+  const list = () => (App.data.nationwide ? App.data.nationwide.rows : []);
+  const placeOf = (r) => r.city || App.marketById[r.market].name;
 
   // ---- every other 1BR / 2BR home in the markets in view (canvas dots) ----
   const homeRadius = () => { const z = map.getZoom(); return z < 7 ? 2 : z < 10 ? 3 : 4.5; };
@@ -87,6 +92,48 @@ const MapView = (() => {
       U.el("div.pop__ev", null, r.evidence));
   }
 
+  function listTip(r) {
+    return U.el("div", null, U.el("b", null, U.money(r.revenue)), ` · ${r.bedrooms}BR`, U.el("br"),
+      U.el("span.t-sub", null, r.title));
+  }
+
+  function listPopup(r) {
+    const m = r.market && App.marketById[r.market];
+    return U.el("div.pop", null,
+      U.el("div.pop__market", null, U.el("span", null, `${r.city}, ${r.state} · ${r.bedrooms}BR`)),
+      U.el("a.pop__title", { href: r.url, target: "_blank", rel: "noopener" }, r.title, U.extIcon()),
+      U.el("div.pop__rev", null, U.money(r.revenue), U.el("small", null, "revenue as listed")),
+      U.el("div.pop__row", null, m ? `Also a red room in the cleaned ${m.name} data` : "Not in the cleaned market data"));
+  }
+
+  function renderLegend() {
+    const brs = list().map((r) => r.bedrooms);
+    legend.replaceChildren(...(tab === "cleaned"
+      ? [U.el("span", null, U.el("i"), "Red room"), U.el("span", null, U.el("i.new"), "New find"),
+        U.el("span", null, U.el("i.top"), "Top 10% 1–2BR"), U.el("span", null, U.el("i.home"), "Other 1–2BR")]
+      : [U.el("span", null, U.el("i"), `Adult-themed listing · ${Math.min(...brs)}–${Math.max(...brs)}BR · not cleaned`)]));
+  }
+
+  function renderTabs() {
+    const t = (k, label, kind) => U.el("button", {
+      type: "button", role: "tab", "aria-selected": String(tab === k), "aria-controls": "map", class: "dd-tab",
+      on: { click: () => setTab(k) },
+    }, label, U.el("span.dd-tab__kind", null, kind));
+    document.getElementById("map-tabs").replaceChildren(
+      t("cleaned", "Cleaned markets", "Market Eval data"),
+      t("list", "Nationwide list", `${list().length} · not cleaned`));
+  }
+
+  /** Switch the map between the cleaned market data and the nationwide list. */
+  function setTab(k) {
+    if (k === tab) return;
+    tab = k;
+    active = k === "cleaned" ? markers : listMarkers;
+    renderTabs();
+    renderLegend();
+    update(false);
+  }
+
   function control(position, build) {
     const C = L.Control.extend({ onAdd() { const d = build(); L.DomEvent.disableClickPropagation(d); return d; } });
     return new C({ position }).addTo(map);
@@ -129,10 +176,19 @@ const MapView = (() => {
       });
       markers[r.id] = m;
     });
+    list().forEach((r) => {
+      const m = L.marker([r.lat, r.lng], { icon: pinIcon(r), keyboard: true, riseOnHover: true });
+      m.bindPopup(() => listPopup(r), { maxWidth: 300, autoPanPadding: [24, 24] });
+      m.bindTooltip(() => listTip(r), { direction: "top", className: "rr-tip", opacity: 1 });
+      m.on("popupopen", () => m.closeTooltip());
+      m.on("add", () => m.getElement() && m.getElement().setAttribute("aria-label", `${r.title}, ${r.city}, ${U.money(r.revenue)}`));
+      listMarkers[r.id] = m;
+    });
 
-    control("bottomleft", () => U.el("div.map-legend", null,
-      U.el("span", null, U.el("i"), "Red room"), U.el("span", null, U.el("i.new"), "New find"),
-      U.el("span", null, U.el("i.top"), "Top 10% 1–2BR"), U.el("span", null, U.el("i.home"), "Other 1–2BR")));
+    control("bottomleft", () => (legend = U.el("div.map-legend")));
+    renderLegend();
+    if (list().length) renderTabs();
+    else document.getElementById("map-tabs").closest(".map-head").hidden = true;
     control("topright", () => U.el("div.map-bases", { role: "group", "aria-label": "Basemap" },
       ["light", "streets"].map((k) => U.el("button", {
         type: "button", "data-base": k, "aria-pressed": String(k === baseKey), on: { click: () => setBase(k) },
@@ -168,26 +224,29 @@ const MapView = (() => {
         icon: L.divIcon({ className: "rr-cluster", iconSize: [size, size], iconAnchor: [size / 2, size / 2], html: `<span>${n}</span>` }),
         keyboard: true, riseOnHover: true,
       });
-      const byMarket = {};
-      g.items.forEach(({ r }) => { byMarket[r.market] = (byMarket[r.market] || 0) + 1; });
-      const label = Object.entries(byMarket).map(([id, k]) => `${App.marketById[id].name} ${k}`).join(" · ");
+      const byPlace = {};
+      g.items.forEach(({ r }) => { byPlace[placeOf(r)] = (byPlace[placeOf(r)] || 0) + 1; });
+      const label = Object.entries(byPlace).map(([p, k]) => `${p} ${k}`).join(" · ");
       cm.bindTooltip(() => U.el("div", null, label), { direction: "top", offset: [0, -size / 2], className: "rr-tip", opacity: 1 });
       cm.on("click", () => map.flyToBounds(L.latLngBounds(g.items.map(({ r }) => [r.lat, r.lng])).pad(0.5), { maxZoom: 13, duration: 0.7 }));
-      cm.on("add", () => cm.getElement() && cm.getElement().setAttribute("aria-label", `${n} red rooms: ${label}`));
+      const what = tab === "cleaned" ? "red rooms" : "adult-themed listings";
+      cm.on("add", () => cm.getElement() && cm.getElement().setAttribute("aria-label", `${n} ${what}: ${label}`));
       g.items.forEach(({ r }) => { clusterOf[r.id] = cm; });
       cm.addTo(clusterLayer);
     }
-    for (const [id, m] of Object.entries(markers)) {
-      const want = singles.has(id);
-      if (want && !roomLayer.hasLayer(m)) roomLayer.addLayer(m);
-      else if (!want && roomLayer.hasLayer(m)) roomLayer.removeLayer(m);
+    for (const set of [markers, listMarkers]) {
+      for (const [id, m] of Object.entries(set)) {
+        const want = set === active && singles.has(id);
+        if (want && !roomLayer.hasLayer(m)) roomLayer.addLayer(m);
+        else if (!want && roomLayer.hasLayer(m)) roomLayer.removeLayer(m);
+      }
     }
     applyHot();
   }
 
   function applyHot() {
     const hot = App.state.hot;
-    for (const [id, m] of Object.entries(markers)) {
+    for (const [id, m] of Object.entries(active)) {
       const e = m.getElement();
       if (e) e.classList.toggle("is-hot", id === hot);
       m.setZIndexOffset(id === hot ? 1000 : 0);
@@ -196,9 +255,10 @@ const MapView = (() => {
   }
 
   function update(fly) {
-    visible = App.rooms();
+    visible = tab === "cleaned" ? App.rooms() : list();
     map.closePopup();
-    drawHomes();
+    if (tab === "cleaned") drawHomes();
+    else homeLayer.clearLayers();
     regroup();
     if (fly) focusMarket();
   }
@@ -210,6 +270,7 @@ const MapView = (() => {
   }
 
   function goTo(id) {
+    if (tab !== "cleaned") setTab("cleaned"); // the table and chart are the cleaned data
     const r = App.roomById[id];
     const m = markers[id];
     map.closePopup();

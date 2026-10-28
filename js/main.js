@@ -137,7 +137,8 @@ const App = (() => {
       .map((m) => `${m.name} ${U.monthYear(m.snapshot)}`).join(" · ");
     document.getElementById("foot").replaceChildren(
       U.el("p", null, "Revenue: Revenue Potential from each market's Market Eval workbook (Cleaned_Data, entire homes). Percentile: share of the market's 1BR and 2BR homes earning the same or less; blue on the map marks the top 10%. Median and max: the market's other homes of that size, red rooms excluded."),
-      U.el("p", null, `Data: ${snaps}`));
+      U.el("p", null, `Data: ${snaps}`),
+      ...(data.nationwide ? [U.el("p", null, `Map tab "Nationwide list": the adult-themed rows of ${data.nationwide.source}, as given (not cleaned; revenue as listed).`)] : []));
   }
 
   function init() {

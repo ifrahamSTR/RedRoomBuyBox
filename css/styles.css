@@ -119,6 +119,7 @@ button { font: inherit; }
 .count { color: var(--muted); font-weight: 500; margin-left: 4px; }
 
 /* ---------- Map ---------- */
+.map-head { padding-bottom: 12px; }
 .map { height: 560px; background: #efefed; } /* the light basemap's land color, so any tile seam blends in */
 .leaflet-container { font-family: inherit; }
 /* Closes the hairline seams Chrome leaves between scaled tiles at fractional
